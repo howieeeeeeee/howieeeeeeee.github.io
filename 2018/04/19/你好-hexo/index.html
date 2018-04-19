@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Howieee&#39;s Blog">
 <meta property="og:description" content="使用Hexo搭建github博客，主要参考http://www.cnblogs.com/fengxiongZz/p/7707219.html， http://www.cnblogs.com/fengxiongZz/p/7707568.html， http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/，推荐">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-04-19T08:08:47.278Z">
+<meta property="og:updated_time" content="2018-04-19T09:08:40.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你好-Hexo">
 <meta name="twitter:description" content="使用Hexo搭建github博客，主要参考http://www.cnblogs.com/fengxiongZz/p/7707219.html， http://www.cnblogs.com/fengxiongZz/p/7707568.html， http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/，推荐">
@@ -368,6 +368,7 @@
         <p>使用Hexo搭建github博客，主要参考<a href="http://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707219.html</a>， <a href="http://www.cnblogs.com/fengxiongZz/p/7707568.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707568.html</a>， <a href="http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</a>，推荐前两个链接。</p>
 <p>在本地localhost:4000预览和部署github.io后有不一致的地方，可以用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
 <p>之后等一段时间刷新</p>
+<p>添加评论，使用Gitment，详见<a href="https://meesong.github.io/StaticBlog/2017/NexT+Gitment/" target="_blank" rel="noopener">https://meesong.github.io/StaticBlog/2017/NexT+Gitment/</a>, 在GitHub上注册新应用，链接：<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a></p>
 
       
     </div>
@@ -446,7 +447,43 @@
           
   <div class="comments" id="comments">
     
-    
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+          render(state, instance) {
+            const container = document.createElement('div');
+            container.lang = "en-US";
+            container.className = 'gitment-container gitment-root-container';
+            container.appendChild(instance.renderHeader(state, instance));
+            container.appendChild(instance.renderEditor(state, instance));
+            container.appendChild(instance.renderComments(state, instance));
+            container.appendChild(instance.renderFooter(state, instance));
+            return container;
+          }
+        }
+        function showGitment() {
+          $("#gitment_title").attr("style", "display:none");
+          $("#container").attr("style", "").addClass("gitment_container");
+          var gitment = new Gitment({
+            id: window.location.pathname,
+            theme: myTheme,
+            owner: 'howieeeeeeee',
+            repo: 'howieeeeeeee.github.io',
+            oauth: {
+              client_id: '5eca9f26990a586072fe',
+              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
+            }
+          });
+          gitment.render('container');
+        }
+        </script>
+      
+
+  </div>
+
 
 
         </div>
@@ -685,24 +722,6 @@
   
 
 
-
-
-
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
-          repo: 'howieeeeeeee.github.io',
-          owner: 'howieeeeeeee',
-          admin: ['howieeeeeeee'],
-          id: location.pathname,
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
 
 
