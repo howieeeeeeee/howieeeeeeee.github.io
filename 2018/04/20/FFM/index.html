@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_adgrad.jpg">
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_training.jpg">
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_hash.jpg">
-<meta property="og:updated_time" content="2018-04-20T08:21:59.341Z">
+<meta property="og:updated_time" content="2018-04-20T09:34:42.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Field-aware Factorization Machines">
 <meta name="twitter:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
@@ -371,39 +371,36 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这篇blog主要介绍Field-aware Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">Field-aware Factorization Machines for CTR Prediction</a>》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《<a href="https://arxiv.org/abs/1701.04099" target="_blank" rel="noopener">Field-aware Factorization Machines in a Real-world Online Advertising System</a>》，主要涉及在工业上的实现和应用。本文关注第一篇文章。</p>
-<p>&lt;!-- more --&gt;
-Field-aware Factorization Machines（FFM）是对FM模型的进一步改进。FFM提出field的概念，指出在特征向量中，某些特征属于同一个field，在进行特征之间的点积时（$\langle v_i,v_j \rangle$），不同的field之间的点积的因子向量不同。比如A和B，C这两个特征进行interaction，传统的FM直接计算$\langle v_A,v_B \rangle$和$\langle v_A,v_C \rangle$，$v_A$是相同的。但是FFM考虑对应不同field，比如B和C，A中也要有不同的参数，即应该$\langle v_A^B,v_B \rangle$和$\langle v_A^C,v_C \rangle$。用论文中的例子来说明，ESPN，Vogue和NBC属于field Publisher(P)，Nike，Gucci和Adidas属于field Advertiser(A)，Male和Female属于field Gender(G)，考虑以下例子</p>
+        <p>这篇blog主要介绍Field-aware Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">Field-aware Factorization Machines for CTR Prediction</a>》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《<a href="https://arxiv.org/abs/1701.04099" target="_blank" rel="noopener">Field-aware Factorization Machines in a Real-world Online Advertising System</a>》，主要涉及在工业上的实现和应用。本文关注第一篇文章。</p>
+<p>Field-aware Factorization Machines（FFM）是对FM模型的进一步改进。FFM提出field的概念，指出在特征向量中，某些特征属于同一个field，在进行特征之间的点积时（$\langle v_i,v_j \rangle$），不同的field之间的点积的因子向量不同。比如A和B，C这两个特征进行interaction，传统的FM直接计算$\langle v_A,v_B \rangle$和$\langle v_A,v_C \rangle$，$v_A$是相同的。但是FFM考虑对应不同field，比如B和C，A中也要有不同的参数，即应该$\langle v_A^B,v_B \rangle$和$\langle v_A^C,v_C \rangle$。用论文中的例子来说明，ESPN，Vogue和NBC属于field Publisher§，Nike，Gucci和Adidas属于field Advertiser(A)，Male和Female属于field Gender(G)，考虑以下例子</p>
 <p><img src="/images/FFM/ffm_example.jpg" alt="ffm_example" title="广告点击例子"></p>
-<p>对于FM，因子部分的计算为
-$$ \langle v_{ESPN},v_{Nike} \rangle+\langle v_{ESPN},v_{Male} \rangle+\langle v_{Nike},v_{Male} \rangle$$
-但是在$\langle v_{ESPN},v_{Nike} \rangle$和$\langle v_{ESPN},v_{Male} \rangle$中，$v_{ESPN}$的影响是不同的。因此，FFM改进为
+<p>对于FM，因子部分的计算为<br>
+$$ \langle v_{ESPN},v_{Nike} \rangle+\langle v_{ESPN},v_{Male} \rangle+\langle v_{Nike},v_{Male} \rangle$$<br>
+但是在$\langle v_{ESPN},v_{Nike} \rangle$和$\langle v_{ESPN},v_{Male} \rangle$中，$v_{ESPN}$的影响是不同的。因此，FFM改进为<br>
 $$ \langle v_{ESPN,A},v_{Nike,P} \rangle+\langle v_{ESPN,G},v_{Male,P} \rangle+\langle v_{Nike,G},v_{Male,A} \rangle$$</p>
-<h2>模型</h2>
-<p>FFM的一阶部分与FM相同，而在特征之间相互时，模型如下
-$$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle v_{j_1,f_2},v_{j_2,f_1}\rangle x_{j_1}x_{j_2}$$
-&lt;!-- $$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle {\bf v}<em>{j_1,f_2},{\bf v}</em>{j_2,f_1}\rangle x_{j_1}x_{j_2}$$ --&gt;</p>
-<p>其中$f_1$和$f_2$分别是$j_1$和$j_2$对应的field。如果$f$是field的个数，那么二阶部分的参数为$nfk
+<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
+<p>FFM的一阶部分与FM相同，而在特征之间相互时，模型如下<br>
+$$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle v_{j_1,f_2},v_{j_2,f_1}\rangle x_{j_1}x_{j_2}$$</p>
+<p>其中$f_1$和$f_2$分别是$j_1$和$j_2$对应的field。如果$f$是field的个数，那么二阶部分的参数为$nfk<br>
 $计算上式的时间复杂度为$O(n^2k)$，但是由于有很多不同的field，每个参数向量只要考虑对应的field即可，那么有</p>
 <p>$$ k_{FFM} \ll k_{FM} $$</p>
-<h2>训练</h2>
-<p>FFM的训练使用AdaGrad，论文&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;中证明了在矩阵分解上AdaGrad的有效性，而MF是FFM的一个特例。
-首先计算sub-gradients
-<img src="/images/FFM/ffm_sub_grad.jpg" alt="ffm_sub_grad" title="FFM梯度">
-$w$为本文中的$v$,其中要最小化的目标函数为CTR预估中的
-$$\frac{\lambda}{2}||\omega||^2_2+\sum_{i=1}^{m}log(1+exp(-y_i \phi_{FFM}(w,x_i)))$$
-之后的计算如下
-<img src="/images/FFM/ffm_adgrad.jpg" alt="ffm_adgrad">
-整体算法为
-<img src="/images/FFM/ffm_training.jpg" alt="ffm_training">
+<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
+<p>FFM的训练使用AdaGrad，论文<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>中证明了在矩阵分解上AdaGrad的有效性，而MF是FFM的一个特例。<br>
+首先计算sub-gradients<br>
+<img src="/images/FFM/ffm_sub_grad.jpg" alt="ffm_sub_grad" title="FFM梯度"><br>
+$w$为本文中的$v$,其中要最小化的目标函数为CTR预估中的<br>
+$$\frac{\lambda}{2}||\omega||^2_2+\sum_{i=1}^{m}log(1+exp(-y_i \phi_{FFM}(w,x_i)))$$<br>
+之后的计算如下<br>
+<img src="/images/FFM/ffm_adgrad.jpg" alt="ffm_adgrad"><br>
+整体算法为<br>
+<img src="/images/FFM/ffm_training.jpg" alt="ffm_training"><br>
 目前可以使用开源代码<a href="http://www.csie.ntu.edu.tw/~cjlin/libffm" target="_blank" rel="noopener">LIBFFM</a></p>
-<p>如果特征特别的多，在Poly Kernel SVM中考虑特征的两两匹配是十分耗时的。通用的机器学习包Vowpal Wabbit(VW)&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;考虑使用哈希。作者也采用相似的方法
-<img src="/images/FFM/ffm_hash.jpg" alt="ffm_hash">
+<p>如果特征特别的多，在Poly Kernel SVM中考虑特征的两两匹配是十分耗时的。通用的机器学习包Vowpal Wabbit(VW)考虑使用哈希<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。作者也采用相似的方法<br>
+<img src="/images/FFM/ffm_hash.jpg" alt="ffm_hash"><br>
 $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
-<h2>其他</h2>
+<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
 <p>文章的实验部分就不贴了。关于FM还有很多其他的改进，比如<a href="http://delivery.acm.org/10.1145/2650000/2645730/p265-chen.pdf?ip=223.3.90.8&amp;id=2645730&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2EEEBE655830483280%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1524212729_8fcc86a87dc7d28956492dd958e4f5bd" target="_blank" rel="noopener">Gradient boosting factorization machines</a>和<a href="http://wnzhang.net/papers/lambdafm.pdf" target="_blank" rel="noopener">LambdaFM</a>，有时间的话再去研究。</p>
-<p>&lt;div id=&quot;footnotes&quot;&gt;&lt;hr&gt;&lt;div id=&quot;footnotelist&quot;&gt;&lt;ol style=&quot;list-style:none; padding-left: 0;&quot;&gt;&lt;li id=&quot;fn:1&quot;&gt;&lt;span style=&quot;display: inline-block; vertical-align: top; padding-right: 10px;&quot;&gt;1.&lt;/span&gt;&lt;span style=&quot;display: inline-block; vertical-align: top;&quot;&gt;A learning-rate schedule for stochastic gradient methods to matrix factorization&lt;/span&gt;&lt;a href=&quot;#fnref:1&quot; rev=&quot;footnote&quot;&gt; ↩&lt;/a&gt;&lt;/li&gt;&lt;li id=&quot;fn:2&quot;&gt;&lt;span style=&quot;display: inline-block; vertical-align: top; padding-right: 10px;&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot;display: inline-block; vertical-align: top;&quot;&gt;&quot;Vowpal Wabbit&quot; https://github.com/JohnLangford/vowpal wabbit/wiki.&lt;/span&gt;&lt;a href=&quot;#fnref:2&quot; rev=&quot;footnote&quot;&gt; ↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;</p>
-
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">A learning-rate schedule for stochastic gradient methods to matrix factorization</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">&quot;Vowpal Wabbit&quot; https://github.com/JohnLangford/vowpal wabbit/wiki.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
@@ -454,6 +451,10 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/20/FM_DeepLearning/" rel="prev" title="FM in Deep Learning">
+                FM in Deep Learning <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -561,7 +562,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -572,7 +573,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -583,7 +584,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -618,7 +619,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">¶模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">¶训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">¶其他</span></a></li></ol></div>
             
 
           </div>
