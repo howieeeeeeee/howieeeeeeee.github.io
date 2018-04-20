@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_adgrad.jpg">
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_training.jpg">
 <meta property="og:image" content="http://yoursite.com/images/FFM/ffm_hash.jpg">
-<meta property="og:updated_time" content="2018-04-20T09:34:42.146Z">
+<meta property="og:updated_time" content="2018-04-20T11:46:30.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Field-aware Factorization Machines">
 <meta name="twitter:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
@@ -378,13 +378,13 @@
 $$ \langle v_{ESPN},v_{Nike} \rangle+\langle v_{ESPN},v_{Male} \rangle+\langle v_{Nike},v_{Male} \rangle$$<br>
 但是在$\langle v_{ESPN},v_{Nike} \rangle$和$\langle v_{ESPN},v_{Male} \rangle$中，$v_{ESPN}$的影响是不同的。因此，FFM改进为<br>
 $$ \langle v_{ESPN,A},v_{Nike,P} \rangle+\langle v_{ESPN,G},v_{Male,P} \rangle+\langle v_{Nike,G},v_{Male,A} \rangle$$</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
+<h2>模型</h2>
 <p>FFM的一阶部分与FM相同，而在特征之间相互时，模型如下<br>
 $$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle v_{j_1,f_2},v_{j_2,f_1}\rangle x_{j_1}x_{j_2}$$</p>
 <p>其中$f_1$和$f_2$分别是$j_1$和$j_2$对应的field。如果$f$是field的个数，那么二阶部分的参数为$nfk<br>
 $计算上式的时间复杂度为$O(n^2k)$，但是由于有很多不同的field，每个参数向量只要考虑对应的field即可，那么有</p>
 <p>$$ k_{FFM} \ll k_{FM} $$</p>
-<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
+<h2>训练</h2>
 <p>FFM的训练使用AdaGrad，论文<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>中证明了在矩阵分解上AdaGrad的有效性，而MF是FFM的一个特例。<br>
 首先计算sub-gradients<br>
 <img src="/images/FFM/ffm_sub_grad.jpg" alt="ffm_sub_grad" title="FFM梯度"><br>
@@ -398,7 +398,7 @@ $$\frac{\lambda}{2}||\omega||^2_2+\sum_{i=1}^{m}log(1+exp(-y_i \phi_{FFM}(w,x_i)
 <p>如果特征特别的多，在Poly Kernel SVM中考虑特征的两两匹配是十分耗时的。通用的机器学习包Vowpal Wabbit(VW)考虑使用哈希<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。作者也采用相似的方法<br>
 <img src="/images/FFM/ffm_hash.jpg" alt="ffm_hash"><br>
 $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
-<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
+<h2>其他</h2>
 <p>文章的实验部分就不贴了。关于FM还有很多其他的改进，比如<a href="http://delivery.acm.org/10.1145/2650000/2645730/p265-chen.pdf?ip=223.3.90.8&amp;id=2645730&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2EEEBE655830483280%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1524212729_8fcc86a87dc7d28956492dd958e4f5bd" target="_blank" rel="noopener">Gradient boosting factorization machines</a>和<a href="http://wnzhang.net/papers/lambdafm.pdf" target="_blank" rel="noopener">LambdaFM</a>，有时间的话再去研究。</p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">A learning-rate schedule for stochastic gradient methods to matrix factorization</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">&quot;Vowpal Wabbit&quot; https://github.com/JohnLangford/vowpal wabbit/wiki.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
       
@@ -619,7 +619,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">¶模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">¶训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">¶其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
