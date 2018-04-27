@@ -103,10 +103,11 @@
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_target.jpg">
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/gen_pg.jpg">
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/algor.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/cmp.jpg">
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/metric.jpg">
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/result.jpg">
 <meta property="og:image" content="http://yoursite.com/images/SeqGAN/result_2.jpg">
-<meta property="og:updated_time" content="2018-04-27T09:08:35.679Z">
+<meta property="og:updated_time" content="2018-04-27T09:11:29.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SeqGAN">
 <meta name="twitter:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
@@ -372,7 +373,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  629 字
+                  650 字
                 </span>
               
 
@@ -431,6 +432,8 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
 <img src="/images/SeqGAN/algor.jpg" alt="algor"><br>
 文章中生成模型使用LSTM，判别模型使用CNN。</p>
 <p><a href="https://github.com/howieeeeeeee/SeqGAN" target="_blank" rel="noopener">相关代码</a>,从<a href="https://github.com/LantaoYu/SeqGAN" target="_blank" rel="noopener">https://github.com/LantaoYu/SeqGAN</a>fork</p>
+<p>李宏毅老师的课程中给出了MLE和增强学习的对比<br>
+<img src="/images/SeqGAN/cmp.jpg" alt="cmp"></p>
 <h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
 <p>首先作者做了人工数据的实验。通过随机初始化LSTM作为oracle来生成真实数据的分布，然后用这些数据来训练SeqGAN和其他的生成器。之后利用各种生成器来生成Sequence，并利用oracle来进行评价。假设验证数据是a,b,c,。将a输入oracle查看输出b的概率$p(b/a)$，再输入c查看$p(c/a,b)$然后用负对数似然也就是交叉熵来评判。具体公式为<br>
 <img src="/images/SeqGAN/metric.jpg" alt="metric"><br>
