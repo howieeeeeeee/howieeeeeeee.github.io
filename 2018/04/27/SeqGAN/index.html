@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="recommendation," />
+  <meta name="keywords" content="deep learning,GAN," />
 
 
 
@@ -87,24 +87,30 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
-<meta name="keywords" content="recommendation">
+<meta name="description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
+<meta name="keywords" content="deep learning,GAN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Field-aware Factorization Machines">
-<meta property="og:url" content="http://yoursite.com/2018/04/20/FFM/index.html">
+<meta property="og:title" content="SeqGAN">
+<meta property="og:url" content="http://yoursite.com/2018/04/27/SeqGAN/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
+<meta property="og:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_example.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_sub_grad.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_adgrad.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_training.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_hash.jpg">
-<meta property="og:updated_time" content="2018-04-21T13:34:51.047Z">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/generator_target.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_reward.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/mc.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/reward.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_target.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/gen_pg.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/algor.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/metric.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result_2.jpg">
+<meta property="og:updated_time" content="2018-04-27T09:08:35.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Field-aware Factorization Machines">
-<meta name="twitter:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
-<meta name="twitter:image" content="http://yoursite.com/images/FFM/ffm_example.jpg">
+<meta name="twitter:title" content="SeqGAN">
+<meta name="twitter:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
+<meta name="twitter:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
 
 
 
@@ -132,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/20/FFM/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/27/SeqGAN/"/>
 
 
 
 
 
-  <title> Field-aware Factorization Machines | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> SeqGAN | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -277,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/FFM/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/SeqGAN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -298,7 +304,7 @@
             
             
               
-                Field-aware Factorization Machines
+                SeqGAN
               
             
           </h1>
@@ -313,8 +319,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T13:45:32+08:00">
-                2018-04-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T16:11:34+08:00">
+                2018-04-27
               </time>
             
 
@@ -336,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐算法</span>
+                  <a href="/categories/深度学习GAN/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习GAN</span>
                   </a>
                 </span>
 
@@ -366,7 +372,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  714 字
+                  629 字
                 </span>
               
 
@@ -382,7 +388,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -401,37 +407,38 @@
       
 
       
-        <p>这篇blog主要介绍Field-aware Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">Field-aware Factorization Machines for CTR Prediction</a>》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《<a href="https://arxiv.org/abs/1701.04099" target="_blank" rel="noopener">Field-aware Factorization Machines in a Real-world Online Advertising System</a>》，主要涉及在工业上的实现和应用。本文关注第一篇文章。</p>
+        <p>本文主要介绍AAAI 2017的论文<a href="https://arxiv.org/abs/1609.05473.pdf" target="_blank" rel="noopener">SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient</a></p>
 <a id="more"></a>
-<p>Field-aware Factorization Machines（FFM）是对FM模型的进一步改进。FFM提出field的概念，指出在特征向量中，某些特征属于同一个field，在进行特征之间的点积时（$\langle v_i,v_j \rangle$），不同的field之间的点积的因子向量不同。比如A和B，C这两个特征进行interaction，传统的FM直接计算$\langle v_A,v_B \rangle$和$\langle v_A,v_C \rangle$，$v_A$是相同的。但是FFM考虑对应不同field，比如B和C，A中也要有不同的参数，即应该$\langle v_A^B,v_B \rangle$和$\langle v_A^C,v_C \rangle$。用论文中的例子来说明，ESPN，Vogue和NBC属于field Publisher§，Nike，Gucci和Adidas属于field Advertiser(A)，Male和Female属于field Gender(G)，考虑以下例子</p>
-<p><img src="/images/FFM/ffm_example.jpg" alt="ffm_example" title="广告点击例子"></p>
-<p>对于FM，因子部分的计算为<br>
-$$ \langle v_{ESPN},v_{Nike} \rangle+\langle v_{ESPN},v_{Male} \rangle+\langle v_{Nike},v_{Male} \rangle$$<br>
-但是在$\langle v_{ESPN},v_{Nike} \rangle$和$\langle v_{ESPN},v_{Male} \rangle$中，$v_{ESPN}$的影响是不同的。因此，FFM改进为<br>
-$$ \langle v_{ESPN,A},v_{Nike,P} \rangle+\langle v_{ESPN,G},v_{Male,P} \rangle+\langle v_{Nike,G},v_{Male,A} \rangle$$</p>
+<p>GAN在计算机视觉上已经被成功的应用，但是在生成Sequence中却很难使用GAN。原因在于GAN的初衷是生成连续数据，而序列是离散数据(详见IRGAN的blog)，其次GAN在判别时只能对于完整的Sequence给出score或者loss，对于残缺的Sequence无法进行判断。为了解决这两个问题，作者提出SeqGAN的方法，首先利用强化学习中的“策略梯度”来进行generator的训练，其次对于残缺的Sequence，利用Monte Carlo(MC) search来残缺的Sequence之后的部分，再利用discriminator来给出score/loss。</p>
 <h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>FFM的一阶部分与FM相同，而在特征之间相互时，模型如下<br>
-$$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle v_{j_1,f_2},v_{j_2,f_1}\rangle x_{j_1}x_{j_2}$$</p>
-<p>其中$f_1$和$f_2$分别是$j_1$和$j_2$对应的field。如果$f$是field的个数，那么二阶部分的参数为$nfk<br>
-$计算上式的时间复杂度为$O(n^2k)$，但是由于有很多不同的field，每个参数向量只要考虑对应的field即可，那么有</p>
-<p>$$ k_{FFM} \ll k_{FM} $$</p>
-<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
-<p>FFM的训练使用AdaGrad，论文<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>中证明了在矩阵分解上AdaGrad的有效性，而MF是FFM的一个特例。<br>
-首先计算sub-gradients<br>
-<img src="/images/FFM/ffm_sub_grad.jpg" alt="ffm_sub_grad" title="FFM梯度"><br>
-$w$为本文中的$v$,其中要最小化的目标函数为CTR预估中的<br>
-$$\frac{\lambda}{2}||\omega||^2_2+\sum_{i=1}^{m}log(1+exp(-y_i \phi_{FFM}(w,x_i)))$$<br>
-之后的计算如下<br>
-<img src="/images/FFM/ffm_adgrad.jpg" alt="ffm_adgrad"><br>
-整体算法为<br>
-<img src="/images/FFM/ffm_training.jpg" alt="ffm_training"><br>
-目前可以使用开源代码<a href="http://www.csie.ntu.edu.tw/~cjlin/libffm" target="_blank" rel="noopener">LIBFFM</a></p>
-<p>如果特征特别的多，在Poly Kernel SVM中考虑特征的两两匹配是十分耗时的。通用的机器学习包Vowpal Wabbit(VW)考虑使用哈希<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。作者也采用相似的方法<br>
-<img src="/images/FFM/ffm_hash.jpg" alt="ffm_hash"><br>
-$h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
-<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
-<p>文章的实验部分就不贴了。关于FM还有很多其他的改进，比如<a href="http://delivery.acm.org/10.1145/2650000/2645730/p265-chen.pdf?ip=223.3.90.8&amp;id=2645730&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2EEEBE655830483280%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1524212729_8fcc86a87dc7d28956492dd958e4f5bd" target="_blank" rel="noopener">Gradient boosting factorization machines</a>和<a href="http://wnzhang.net/papers/lambdafm.pdf" target="_blank" rel="noopener">LambdaFM</a>，有时间的话再去研究。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">A learning-rate schedule for stochastic gradient methods to matrix factorization</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">&quot;Vowpal Wabbit&quot; https://github.com/JohnLangford/vowpal wabbit/wiki.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<p>整体模型如下，利用真实数据和生成器的数据来训练判别其，而生成器更新时的reward由判别器给出<br>
+<img src="/images/SeqGAN/model.jpg" alt="model"><br>
+生成器的目的是最大化下式<br>
+<img src="/images/SeqGAN/generator_target.jpg" alt="generator_target"></p>
+<p>
+其中$G_\theta(y_1|s_0)$是当初始状态为$s_0$时，生成序列$y_1$。$Q^{G_\theta}_{D_\phi}(s_0,y_1)$时序列的动作-值函数，用来表示reward。文中使用判别器$D_\phi(Y_{1:n}^n)$来作为reward，具体的，有
+</p>
+<p><img src="/images/SeqGAN/dis_reward.jpg" alt="dis_reward"><br>
+然而判别器只能给出完整Sequence的reward，对于残缺的Sequence，作者用AlphaGo中的roll-out policy来采用剩余的未知token。当有$1:t$的残缺Sequence时，$Y_{t+1:T}^n$从roll-out policy$G_\beta$进行采样<br>
+<img src="/images/SeqGAN/mc.jpg" alt="mc"><br>
+reward如下，当Sequence完整时，用判别器的score，否则每个token的reward用采样之后的score取平均得到。<br>
+<img src="/images/SeqGAN/reward.jpg" alt="reward"><br>
+判别器的目标函数为最小化下式<br>
+<img src="/images/SeqGAN/dis_target.jpg" alt="dis_target"><br>
+生成器的梯度由策略梯度得到，参数更新为$\theta\leftarrow\theta+\alpha_h\nabla_\theta J(\theta)$<br>
+<img src="/images/SeqGAN/gen_pg.jpg" alt="gen_pg"><br>
+整体算法如下，可以看到，使用了MLE(最大似然估计)来预训练G<br>
+<img src="/images/SeqGAN/algor.jpg" alt="algor"><br>
+文章中生成模型使用LSTM，判别模型使用CNN。</p>
+<p><a href="https://github.com/howieeeeeeee/SeqGAN" target="_blank" rel="noopener">相关代码</a>,从<a href="https://github.com/LantaoYu/SeqGAN" target="_blank" rel="noopener">https://github.com/LantaoYu/SeqGAN</a>fork</p>
+<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
+<p>首先作者做了人工数据的实验。通过随机初始化LSTM作为oracle来生成真实数据的分布，然后用这些数据来训练SeqGAN和其他的生成器。之后利用各种生成器来生成Sequence，并利用oracle来进行评价。假设验证数据是a,b,c,。将a输入oracle查看输出b的概率$p(b/a)$，再输入c查看$p(c/a,b)$然后用负对数似然也就是交叉熵来评判。具体公式为<br>
+<img src="/images/SeqGAN/metric.jpg" alt="metric"><br>
+结果如下<br>
+<img src="/images/SeqGAN/result.jpg" alt="result"><br>
+论文中还有生文本和生成音乐的实验，此处只给出结果<br>
+<img src="/images/SeqGAN/result_2.jpg" alt="result_2"></p>
+
       
     </div>
 
@@ -460,7 +467,9 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
       
         <div class="post-tags">
           
-            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+            <a href="/tags/GAN/" rel="tag"># GAN</a>
           
         </div>
       
@@ -473,8 +482,8 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/20/FM/" rel="next" title="Factorization Machines">
-                <i class="fa fa-chevron-left"></i> Factorization Machines
+              <a href="/2018/04/24/IRGAN/" rel="next" title="IRGAN">
+                <i class="fa fa-chevron-left"></i> IRGAN
               </a>
             
           </div>
@@ -482,10 +491,6 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/20/FM_DeepLearning/" rel="prev" title="FM in Deep Learning">
-                FM in Deep Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +655,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li></ol></div>
             
 
           </div>
