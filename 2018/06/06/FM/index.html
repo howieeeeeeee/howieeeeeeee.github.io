@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deep learning,GAN," />
+  <meta name="keywords" content="recommendation," />
 
 
 
@@ -87,31 +87,27 @@
 
 
 
-<meta name="description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
-<meta name="keywords" content="deep learning,GAN">
+<meta name="description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
+<meta name="keywords" content="recommendation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SeqGAN">
-<meta property="og:url" content="http://yoursite.com/2018/04/27/SeqGAN/index.html">
+<meta property="og:title" content="Factorization Machines">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/FM/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
+<meta property="og:description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/generator_target.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_reward.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/mc.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/reward.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_target.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/gen_pg.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/algor.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/cmp.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/metric.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result_2.jpg">
-<meta property="og:updated_time" content="2018-04-27T09:11:30.000Z">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_example.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_model_d_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_linear_computation.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_grad.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_model_d.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_linear_svm.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_polykernel.jpg">
+<meta property="og:image" content="http://yoursite.com/images/FM/fm_polykernel_svm.jpg">
+<meta property="og:updated_time" content="2018-04-21T13:34:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SeqGAN">
-<meta name="twitter:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
-<meta name="twitter:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
+<meta name="twitter:title" content="Factorization Machines">
+<meta name="twitter:description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
+<meta name="twitter:image" content="http://yoursite.com/images/FM/fm_example.jpg">
 
 
 
@@ -139,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/27/SeqGAN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/FM/"/>
 
 
 
 
 
-  <title> SeqGAN | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Factorization Machines | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -284,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/SeqGAN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/FM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -305,7 +301,7 @@
             
             
               
-                SeqGAN
+                Factorization Machines
               
             
           </h1>
@@ -320,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T16:11:34+08:00">
-                2018-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T15:45:22+08:00">
+                2018-06-06
               </time>
             
 
@@ -343,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习GAN/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习GAN</span>
+                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
+                    <span itemprop="name">推荐算法</span>
                   </a>
                 </span>
 
@@ -373,7 +369,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  650 字
+                  773 字
                 </span>
               
 
@@ -389,7 +385,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  2 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -408,39 +404,37 @@
       
 
       
-        <p>本文主要介绍AAAI 2017的论文<a href="https://arxiv.org/abs/1609.05473.pdf" target="_blank" rel="noopener">SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient</a></p>
+        <p>这篇blog主要介绍Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">Factorization Machines</a>》，发表在2010年ICDM上。</p>
 <a id="more"></a>
-<p>GAN在计算机视觉上已经被成功的应用，但是在生成Sequence中却很难使用GAN。原因在于GAN的初衷是生成连续数据，而序列是离散数据(详见IRGAN的blog)，其次GAN在判别时只能对于完整的Sequence给出score或者loss，对于残缺的Sequence无法进行判断。为了解决这两个问题，作者提出SeqGAN的方法，首先利用强化学习中的“策略梯度”来进行generator的训练，其次对于残缺的Sequence，利用Monte Carlo(MC) search来残缺的Sequence之后的部分，再利用discriminator来给出score/loss。</p>
+<p>Factorization Machines是一种新的模型，融合了SVM和factorization模型的优点，可以更好的处理特征之间的交互(interactions between variables)，并且可以处理稀疏的特征。特征的稀疏性来源于特征的one-hot编码，下图是电影评分的一个例子</p>
+<p><img src="/images/FM/fm_example.jpg" alt="fm_example" title="电影评分特征向量示例"></p>
+<p>可以看到User和Movie的特征中非零项只有一个，而零值特征很多。在特征向量中非零特征的个数远远小于向量长度时该特征向量就是稀疏的。</p>
 <h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>整体模型如下，利用真实数据和生成器的数据来训练判别其，而生成器更新时的reward由判别器给出<br>
-<img src="/images/SeqGAN/model.jpg" alt="model"><br>
-生成器的目的是最大化下式<br>
-<img src="/images/SeqGAN/generator_target.jpg" alt="generator_target"></p>
-<p>
-其中$G_\theta(y_1|s_0)$是当初始状态为$s_0$时，生成序列$y_1$。$Q^{G_\theta}_{D_\phi}(s_0,y_1)$时序列的动作-值函数，用来表示reward。文中使用判别器$D_\phi(Y_{1:n}^n)$来作为reward，具体的，有
-</p>
-<p><img src="/images/SeqGAN/dis_reward.jpg" alt="dis_reward"><br>
-然而判别器只能给出完整Sequence的reward，对于残缺的Sequence，作者用AlphaGo中的roll-out policy来采用剩余的未知token。当有$1:t$的残缺Sequence时，$Y_{t+1:T}^n$从roll-out policy$G_\beta$进行采样<br>
-<img src="/images/SeqGAN/mc.jpg" alt="mc"><br>
-reward如下，当Sequence完整时，用判别器的score，否则每个token的reward用采样之后的score取平均得到。<br>
-<img src="/images/SeqGAN/reward.jpg" alt="reward"><br>
-判别器的目标函数为最小化下式<br>
-<img src="/images/SeqGAN/dis_target.jpg" alt="dis_target"><br>
-生成器的梯度由策略梯度得到，参数更新为$\theta\leftarrow\theta+\alpha_h\nabla_\theta J(\theta)$<br>
-<img src="/images/SeqGAN/gen_pg.jpg" alt="gen_pg"><br>
-整体算法如下，可以看到，使用了MLE(最大似然估计)来预训练G<br>
-<img src="/images/SeqGAN/algor.jpg" alt="algor"><br>
-文章中生成模型使用LSTM，判别模型使用CNN。</p>
-<p><a href="https://github.com/howieeeeeeee/SeqGAN" target="_blank" rel="noopener">相关代码</a>,从<a href="https://github.com/LantaoYu/SeqGAN" target="_blank" rel="noopener">https://github.com/LantaoYu/SeqGAN</a>fork</p>
-<p>李宏毅老师的课程中给出了MLE和增强学习的对比<br>
-<img src="/images/SeqGAN/cmp.jpg" alt="cmp"></p>
-<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
-<p>首先作者做了人工数据的实验。通过随机初始化LSTM作为oracle来生成真实数据的分布，然后用这些数据来训练SeqGAN和其他的生成器。之后利用各种生成器来生成Sequence，并利用oracle来进行评价。假设验证数据是a,b,c,。将a输入oracle查看输出b的概率$p(b/a)$，再输入c查看$p(c/a,b)$然后用负对数似然也就是交叉熵来评判。具体公式为<br>
-<img src="/images/SeqGAN/metric.jpg" alt="metric"><br>
-结果如下<br>
-<img src="/images/SeqGAN/result.jpg" alt="result"><br>
-论文中还有生文本和生成音乐的实验，此处只给出结果<br>
-<img src="/images/SeqGAN/result_2.jpg" alt="result_2"></p>
+<p>以d=2阶FM模型为例，模型如下</p>
+<p><img src="/images/FM/fm_model_d_2.jpg" alt="" title="2阶FM模型"></p>
+<p>其中$v_i$是$k$维的向量，$\omega_0$是全局bias，$\omega_i$是第$i$个特征的权重，$\omega_{i,j}=\langle v_i,v_j \rangle$对第$i$个特征和第$j$个特征进行建模，不同于只使用一个单独的实数值$\omega_{i,j} \in \Bbb R$，这也是FM模型的关键点。通过将$\omega_{i,j}$进行因子分解，FM可以更好的处理稀疏特征。比如在电影评分中，假设我们项估计A和ST的参数，但是在数据集中，A和ST并没有同时在一个特征向量中出现，那么最终得到的模型就是$\omega_{A,ST}=0$。但是通过将$\omega_{A,ST}$分解为$\langle \bf v_A,v_{ST} \rangle$，即使$\omega_{A,ST}$对应的特征没有同时出现，但是$\bf v_A$和$\bf v_{ST}$可以在其他与之有关的特征组合中学习，并且直观上来讲，相似的因子向量$\bf v$会有相似的结果。这一点和User，Item的矩阵分解相似。</p>
+<p>直接计算公式（1）的最后一部分的时间复杂度为$O(kn^2)$，按照如下方法可以得到$O(kn)$的方法</p>
+<p><img src="/images/FM/fm_linear_computation.jpg" alt="" title="2阶FM模型线性复杂度计算方法"><br>
+这个公式很重要，很多深度学习关于FM的计算都使用该方法进行tensor的计算。</p>
+<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
+<p>可以直接使用随机梯度下降进行训练<br>
+<img src="/images/FM/fm_grad.jpg" alt="" title="2阶FM模型关于参数的梯度">，作者提供了一个开源的实现<a href="http://www.libfm.org" target="_blank" rel="noopener">LIB$\bf FM^2$</a>，使用SGD并且支持element-wise和pairwise loss。</p>
+<h2 id="d阶fm模型"><a class="header-anchor" href="#d阶fm模型">¶</a>d阶FM模型</h2>
+<p><img src="/images/FM/fm_model_d.jpg" alt="" title="d阶FM模型"></p>
+<h2 id="与其他模型的对比"><a class="header-anchor" href="#与其他模型的对比">¶</a>与其他模型的对比</h2>
+<p>论文中给出了FM与SVM，MF，SVD++，PITF，FPMC的对比，本文只给出与SVM的对比。<br>
+线性SVM如下<br>
+<img src="/images/FM/fm_linear_svm.jpg" alt="" title="线性SVM模型"><br>
+可以看出这只是FM模型在d=1的情况</p>
+<p>多项式核SVM<br>
+多项式核定位为$K(x,z)=(\langle x,z \rangle)^d$，如果d=2，对应于以下的映射<br>
+<img src="/images/FM/fm_polykernel.jpg" alt="" title="d=2的多项式核"><br>
+此时，SVM模型为<br>
+<img src="/images/FM/fm_polykernel_svm.jpg" alt="" title="多项式核SVM"><br>
+与FM不同的是，多项式核SVM中的$\omega_{i,j}$是独立的，而FM通过因子分解，可以有更强的关联性。<br>
+最主要的优点是，当特征向量中的两个向量没有同时出现时（上文中的例子），FM依旧可以学习参数而SVM不行。除此之外，SVM需要对偶方法而FM只需要梯度下降进行优化即可。</p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p>FM优势更大，适用于稀疏特征向量并且优化简单，在一定条件下FM等同于很多模型，包括MF,SVD++,PITF和FPMC。</p>
 
       
     </div>
@@ -470,9 +464,7 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
       
         <div class="post-tags">
           
-            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
-          
-            <a href="/tags/GAN/" rel="tag"># GAN</a>
+            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
           
         </div>
       
@@ -485,8 +477,8 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/24/IRGAN/" rel="next" title="IRGAN">
-                <i class="fa fa-chevron-left"></i> IRGAN
+              <a href="/2018/06/06/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -495,8 +487,8 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/06/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/06/FFM/" rel="prev" title="Field-aware Factorization Machines">
+                Field-aware Factorization Machines <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +654,7 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d阶fm模型"><span class="nav-number">3.</span> <span class="nav-text">d阶fm模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与其他模型的对比"><span class="nav-number">4.</span> <span class="nav-text">与其他模型的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

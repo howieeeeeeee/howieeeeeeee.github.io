@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="multi-label learning," />
 
 
 
@@ -87,14 +87,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="本文简要记录Does Tail Label Help for Large-Scale Multi-Label Learning。">
+<meta name="keywords" content="multi-label learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Does Tail Label Help for Large-Scale Multi-Label Learning">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/TailLabel_LSMLL/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
+<meta property="og:description" content="本文简要记录Does Tail Label Help for Large-Scale Multi-Label Learning。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-04-19T07:21:08.000Z">
+<meta property="og:image" content="http://yoursite.com/images/TailLabel_LSMLL/num_examples_labels.jpg">
+<meta property="og:image" content="http://yoursite.com/images/TailLabel_LSMLL/fig_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/TailLabel_LSMLL/fig_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/TailLabel_LSMLL/fig_4.jpg">
+<meta property="og:updated_time" content="2018-05-18T11:47:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="Does Tail Label Help for Large-Scale Multi-Label Learning">
+<meta name="twitter:description" content="本文简要记录Does Tail Label Help for Large-Scale Multi-Label Learning。">
+<meta name="twitter:image" content="http://yoursite.com/images/TailLabel_LSMLL/num_examples_labels.jpg">
 
 
 
@@ -122,19 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/TailLabel_LSMLL/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    tags | Howieee's Blog
-  
-</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Does Tail Label Help for Large-Scale Multi-Label Learning | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -159,7 +162,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,25 +267,224 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/TailLabel_LSMLL/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howieee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howieee's Blog">
+    </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            6 tags in total
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Does Tail Label Help for Large-Scale Multi-Label Learning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T15:45:22+08:00">
+                2018-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文简记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文简记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  386 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/GAN/" style="font-size: 18px; color: #8e8e8e">GAN</a> <a href="/tags/deep-learning/" style="font-size: 24px; color: #4f4f4f">deep learning</a> <a href="/tags/github/" style="font-size: 12px; color: #ccc">github</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/multi-label-learning/" style="font-size: 12px; color: #ccc">multi-label learning</a> <a href="/tags/recommendation/" style="font-size: 30px; color: #111">recommendation</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文简要记录<a href="http://lamda.nju.edu.cn/liyf/paper/ijcai18-adattl.pdf" target="_blank" rel="noopener">Does Tail Label Help for Large-Scale Multi-Label Learning</a>。</p>
+<a id="more"></a>
+<h2 id="tail-labels"><a class="header-anchor" href="#tail-labels">¶</a>Tail labels</h2>
+<p>Tail labels是指在数据集中这些label只出现在很少的样本里。如文章中下图所示<br>
+<img src="/images/TailLabel_LSMLL/num_examples_labels.jpg" alt="img_1"><br>
+并且当去掉部分tail label之后，在P@1和nDCG@1上预测速度和模型大小都减小，但是评价指标几乎没有变化<br>
+<img src="/images/TailLabel_LSMLL/fig_2.jpg" alt="img_2"><br>
+因此文章的出发点是将这些tail labels去掉来进行学习。文章中有在missing label和misclassified label上的分析，证明了对于以上两个评价指标，common label比tail label更重要，此处不再贴公式。</p>
+<h2 id="adaptively-trimming-off-tail-labels"><a class="header-anchor" href="#adaptively-trimming-off-tail-labels">¶</a>Adaptively Trimming off Tail Labels</h2>
+<p>一种直接的方法是去掉固定比例的tail label，但是对于不同的数据集，该比例应该是变化的。文章中提出一种数据驱动的自定义的确定比例的方法，通过小部分数据集来进行在一定去除比例上进行训练和测试，得出在不同比例下的时间性能和模型大小，然后来拟合比例和这些指标的关系。之后优化下式来得到 $\lambda$<br>
+<img src="/images/TailLabel_LSMLL/fig_3.jpg" alt="img_3"><br>
+其中$f$是测试性能的回归器，$g$是预测时间的回归器，$h$是模型大小的回归器。得到$\lambda$之后，可以用任意的算法来进行多标记学习的训练。以下是算法伪码<br>
+<img src="/images/TailLabel_LSMLL/fig_4.jpg" alt="img_4" title="ADATTL"></p>
+<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
+<p>不贴图了，具体可以看论文。在测试数据集上效果相差不大，但是预测速度和模型大小都有降低。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/multi-label-learning/" rel="tag"># multi-label learning</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/你好-hexo/" rel="next" title="你好-Hexo">
+                <i class="fa fa-chevron-left"></i> 你好-Hexo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/06/test/" rel="prev" title="tests">
+                tests <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -350,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -413,6 +624,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tail-labels"><span class="nav-number">1.</span> <span class="nav-text">tail-labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adaptively-trimming-off-tail-labels"><span class="nav-number">2.</span> <span class="nav-text">adaptively-trimming-off-tail-labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -527,6 +754,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

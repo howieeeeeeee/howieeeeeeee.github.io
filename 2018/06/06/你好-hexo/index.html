@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deep learning,GAN," />
+  <meta name="keywords" content="hexo,github," />
 
 
 
@@ -87,31 +87,18 @@
 
 
 
-<meta name="description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
-<meta name="keywords" content="deep learning,GAN">
+<meta name="description" content="踩坑记录">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SeqGAN">
-<meta property="og:url" content="http://yoursite.com/2018/04/27/SeqGAN/index.html">
+<meta property="og:title" content="你好-Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/你好-hexo/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
+<meta property="og:description" content="踩坑记录">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/generator_target.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_reward.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/mc.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/reward.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/dis_target.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/gen_pg.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/algor.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/cmp.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/metric.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result.jpg">
-<meta property="og:image" content="http://yoursite.com/images/SeqGAN/result_2.jpg">
-<meta property="og:updated_time" content="2018-04-27T09:11:30.000Z">
+<meta property="og:updated_time" content="2018-04-21T13:34:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SeqGAN">
-<meta name="twitter:description" content="本文主要介绍AAAI 2017的论文SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient">
-<meta name="twitter:image" content="http://yoursite.com/images/SeqGAN/model.jpg">
+<meta name="twitter:title" content="你好-Hexo">
+<meta name="twitter:description" content="踩坑记录">
 
 
 
@@ -139,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/27/SeqGAN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/你好-hexo/"/>
 
 
 
 
 
-  <title> SeqGAN | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 你好-Hexo | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -284,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/SeqGAN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/你好-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -305,7 +292,7 @@
             
             
               
-                SeqGAN
+                你好-Hexo
               
             
           </h1>
@@ -320,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T16:11:34+08:00">
-                2018-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T15:45:22+08:00">
+                2018-06-06
               </time>
             
 
@@ -343,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习GAN/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习GAN</span>
+                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客</span>
                   </a>
                 </span>
 
@@ -373,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  650 字
+                  486 字
                 </span>
               
 
@@ -408,39 +395,27 @@
       
 
       
-        <p>本文主要介绍AAAI 2017的论文<a href="https://arxiv.org/abs/1609.05473.pdf" target="_blank" rel="noopener">SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient</a></p>
+        <p>踩坑记录</p>
 <a id="more"></a>
-<p>GAN在计算机视觉上已经被成功的应用，但是在生成Sequence中却很难使用GAN。原因在于GAN的初衷是生成连续数据，而序列是离散数据(详见IRGAN的blog)，其次GAN在判别时只能对于完整的Sequence给出score或者loss，对于残缺的Sequence无法进行判断。为了解决这两个问题，作者提出SeqGAN的方法，首先利用强化学习中的“策略梯度”来进行generator的训练，其次对于残缺的Sequence，利用Monte Carlo(MC) search来残缺的Sequence之后的部分，再利用discriminator来给出score/loss。</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>整体模型如下，利用真实数据和生成器的数据来训练判别其，而生成器更新时的reward由判别器给出<br>
-<img src="/images/SeqGAN/model.jpg" alt="model"><br>
-生成器的目的是最大化下式<br>
-<img src="/images/SeqGAN/generator_target.jpg" alt="generator_target"></p>
-<p>
-其中$G_\theta(y_1|s_0)$是当初始状态为$s_0$时，生成序列$y_1$。$Q^{G_\theta}_{D_\phi}(s_0,y_1)$时序列的动作-值函数，用来表示reward。文中使用判别器$D_\phi(Y_{1:n}^n)$来作为reward，具体的，有
-</p>
-<p><img src="/images/SeqGAN/dis_reward.jpg" alt="dis_reward"><br>
-然而判别器只能给出完整Sequence的reward，对于残缺的Sequence，作者用AlphaGo中的roll-out policy来采用剩余的未知token。当有$1:t$的残缺Sequence时，$Y_{t+1:T}^n$从roll-out policy$G_\beta$进行采样<br>
-<img src="/images/SeqGAN/mc.jpg" alt="mc"><br>
-reward如下，当Sequence完整时，用判别器的score，否则每个token的reward用采样之后的score取平均得到。<br>
-<img src="/images/SeqGAN/reward.jpg" alt="reward"><br>
-判别器的目标函数为最小化下式<br>
-<img src="/images/SeqGAN/dis_target.jpg" alt="dis_target"><br>
-生成器的梯度由策略梯度得到，参数更新为$\theta\leftarrow\theta+\alpha_h\nabla_\theta J(\theta)$<br>
-<img src="/images/SeqGAN/gen_pg.jpg" alt="gen_pg"><br>
-整体算法如下，可以看到，使用了MLE(最大似然估计)来预训练G<br>
-<img src="/images/SeqGAN/algor.jpg" alt="algor"><br>
-文章中生成模型使用LSTM，判别模型使用CNN。</p>
-<p><a href="https://github.com/howieeeeeeee/SeqGAN" target="_blank" rel="noopener">相关代码</a>,从<a href="https://github.com/LantaoYu/SeqGAN" target="_blank" rel="noopener">https://github.com/LantaoYu/SeqGAN</a>fork</p>
-<p>李宏毅老师的课程中给出了MLE和增强学习的对比<br>
-<img src="/images/SeqGAN/cmp.jpg" alt="cmp"></p>
-<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
-<p>首先作者做了人工数据的实验。通过随机初始化LSTM作为oracle来生成真实数据的分布，然后用这些数据来训练SeqGAN和其他的生成器。之后利用各种生成器来生成Sequence，并利用oracle来进行评价。假设验证数据是a,b,c,。将a输入oracle查看输出b的概率$p(b/a)$，再输入c查看$p(c/a,b)$然后用负对数似然也就是交叉熵来评判。具体公式为<br>
-<img src="/images/SeqGAN/metric.jpg" alt="metric"><br>
-结果如下<br>
-<img src="/images/SeqGAN/result.jpg" alt="result"><br>
-论文中还有生文本和生成音乐的实验，此处只给出结果<br>
-<img src="/images/SeqGAN/result_2.jpg" alt="result_2"></p>
+<h2 id="搭建"><a class="header-anchor" href="#搭建">¶</a>搭建</h2>
+<p>使用Hexo搭建github博客，主要参考<a href="http://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707219.html</a>， <a href="http://www.cnblogs.com/fengxiongZz/p/7707568.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707568.html</a>， <a href="http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</a>，推荐前两个链接。</p>
+<h2 id="部署"><a class="header-anchor" href="#部署">¶</a>部署</h2>
+<p>在本地localhost:4000预览和部署github.io后有不一致的地方，可以用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>之后等一段时间刷新</p>
+<p>使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>查看localhost:4000本地预览</p>
+<h2 id="评论"><a class="header-anchor" href="#评论">¶</a>评论</h2>
+<p>添加评论，使用Gitment，详见<a href="https://meesong.github.io/StaticBlog/2017/NexT+Gitment/" target="_blank" rel="noopener">https://meesong.github.io/StaticBlog/2017/NexT+Gitment/</a>, 在GitHub上注册新应用，链接：<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a></p>
+<p>尝试过Gitalk，没成功。</p>
+<h2 id="脚注"><a class="header-anchor" href="#脚注">¶</a>脚注</h2>
+<p><a href="http://baishusama.github.io/2016/12/24/hexo-render-markdown-it-and-its-plugins/" target="_blank" rel="noopener">添加脚注</a></p>
+<h2 id="toc"><a class="header-anchor" href="#toc">¶</a>TOC</h2>
+<p>为了添加脚注，将原有的 hexo-redner-marked 渲染引擎换成了 hexo-render-markdown-it ，但是在该引擎下TOC会有一点问题。首先在博客根目录下的 config.yml 配置文件中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">markdown:</span><br><span class="line">  render:</span><br><span class="line">    html: true # Doesn&apos;t escape HTML content so the tags will appear as html.</span><br><span class="line">    xhtmlOut: false # Parser will not produce XHTML compliant code.</span><br><span class="line">    breaks: true # Parser produces `&lt;br&gt;` tags every time there is a line break in the source document.</span><br><span class="line">    linkify: false # Returns text links as text.</span><br><span class="line">    typographer: true # Substitution of common typographical elements will take place.</span><br><span class="line">    quotes: &apos;“”‘’&apos; # &quot;double&quot; will be turned into “single”</span><br><span class="line">                   # &apos;single&apos; will be turned into ‘single’</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    # - markdown-it-checkbox # 本行启用了 checkbox 插件</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    # - markdown-it-ins</span><br><span class="line">  anchors:</span><br><span class="line">    level: 1 # Minimum level for ID creation. (Ex. h2 to h6)</span><br><span class="line">    collisionSuffix: &apos;v&apos; # A suffix that is prepended to the number given if the ID is repeated.</span><br><span class="line">    permalink: true # If true, creates an anchor tag with a permalink besides the heading.</span><br><span class="line">    permalinkClass: header-anchor # Class used for the permalink anchor tag.</span><br><span class="line">    permalinkSymbol: ¶  # The symbol used to make the permalink.</span><br></pre></td></tr></table></figure>
+<p>其中 html:true 可以在md文件中插入html的内容，比如<code>&lt;!--more--&gt;</code> 来手动指定摘要。<br>
+这个这个渲染引擎在table of contents中会有 ¶ 这个符号。如果要去掉，参考<a href="https://dwatow.github.io/2018/01-28-about-hexo/how-to-hexo-markdown-it-toc/#fnref6" target="_blank" rel="noopener">这篇blog</a>，主要是在 D:\hexo\node_modules\hexo\lib\plugins\helper 中将 toc.js 进行修改，将其中的变量 text 变为 <code>const text = _.escape($(this).attr('id') || $(this).text());</code></p>
 
       
     </div>
@@ -470,9 +445,9 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
       
         <div class="post-tags">
           
-            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
-            <a href="/tags/GAN/" rel="tag"># GAN</a>
+            <a href="/tags/github/" rel="tag"># github</a>
           
         </div>
       
@@ -485,8 +460,8 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/24/IRGAN/" rel="next" title="IRGAN">
-                <i class="fa fa-chevron-left"></i> IRGAN
+              <a href="/2018/06/06/FM_DeepLearning/" rel="next" title="FM in Deep Learning">
+                <i class="fa fa-chevron-left"></i> FM in Deep Learning
               </a>
             
           </div>
@@ -495,8 +470,8 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/06/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/06/TailLabel_LSMLL/" rel="prev" title="Does Tail Label Help for Large-Scale Multi-Label Learning">
+                Does Tail Label Help for Large-Scale Multi-Label Learning <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +637,7 @@ reward如下，当Sequence完整时，用判别器的score，否则每个token�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论"><span class="nav-number">3.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">4.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">5.</span> <span class="nav-text">toc</span></a></li></ol></div>
             
 
           </div>
