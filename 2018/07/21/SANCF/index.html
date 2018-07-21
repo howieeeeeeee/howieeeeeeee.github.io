@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="recommendation," />
 
 
 
@@ -87,13 +87,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Howieee&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/推荐算法/index.html">
+<meta name="description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
+<meta name="keywords" content="recommendation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Self-Attentive Neural Collaborative Filtering">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/SANCF/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
+<meta property="og:description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
 <meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/SANCF/model.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SANCF/self_attention_representation.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SANCF/self_attention_output.jpg">
+<meta property="og:image" content="http://yoursite.com/images/SANCF/output.jpg">
+<meta property="og:updated_time" content="2018-07-21T08:54:21.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howieee&#39;s Blog">
+<meta name="twitter:title" content="Self-Attentive Neural Collaborative Filtering">
+<meta name="twitter:description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
+<meta name="twitter:image" content="http://yoursite.com/images/SANCF/model.jpg">
 
 
 
@@ -121,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/推荐算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/21/SANCF/"/>
 
 
 
 
 
-  <title> Category: 推荐算法 | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Self-Attentive Neural Collaborative Filtering | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -152,7 +162,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,103 +266,220 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        推荐算法
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/21/SANCF/" itemprop="url">
-              
-                <span itemprop="name">Self-Attentive Neural Collaborative Filtering</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-21T16:29:40+08:00"
-              content="2018-07-21" >
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/06/FFM/" itemprop="url">
-              
-                <span itemprop="name">Field-aware Factorization Machines</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-06T15:45:22+08:00"
-              content="2018-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/06/FM/" itemprop="url">
-              
-                <span itemprop="name">Factorization Machines</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-06T15:45:22+08:00"
-              content="2018-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/SANCF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howieee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howieee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Self-Attentive Neural Collaborative Filtering
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T16:29:40+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
+                    <span itemprop="name">推荐算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  110 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《<a href="https://arxiv.org/abs/1806.06446" target="_blank" rel="noopener">Self-Attentive Neural Collaborative Filtering</a>》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。</p>
+<a id="more"></a>
+<p>论文整体结构如下</p>
+<p><img src="/images/SANCF/model.jpg" alt="model"></p>
+<p>$Self-Attention Matrix$通过隐藏层之间的输出来计算<br>
+$S_{ij}=h_i^Th_j$<br>
+得到$S \in R^{l \times l}$的矩阵，当$i=j$时，$S_{ij}=0$<br>
+之后第$i$层的$Self-Attentive Representation$为</p>
+<p><img src="/images/SANCF/self_attention_representation.jpg" alt="self_attention_representation"></p>
+<p>$Self-attention$输出为</p>
+<p><img src="/images/SANCF/self_attention_output.jpg" alt="self_attention_output"></p>
+<p>最终的输出为</p>
+<p><img src="/images/SANCF/output.jpg" alt="output"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/21/TCN/" rel="next" title="Temporal Convolutional Network">
+                <i class="fa fa-chevron-left"></i> Temporal Convolutional Network
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -360,6 +487,45 @@
 
 
           
+  <div class="comments" id="comments">
+    
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+          render(state, instance) {
+            const container = document.createElement('div');
+            container.lang = "en-US";
+            container.className = 'gitment-container gitment-root-container';
+            container.appendChild(instance.renderHeader(state, instance));
+            container.appendChild(instance.renderEditor(state, instance));
+            container.appendChild(instance.renderComments(state, instance));
+            container.appendChild(instance.renderFooter(state, instance));
+            return container;
+          }
+        }
+        function showGitment() {
+          $("#gitment_title").attr("style", "display:none");
+          $("#container").attr("style", "").addClass("gitment_container");
+          var gitment = new Gitment({
+            id: window.location.pathname,
+            theme: myTheme,
+            owner: 'howieeeeeeee',
+            repo: 'howieeeeeeee.github.io',
+            oauth: {
+              client_id: '5eca9f26990a586072fe',
+              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
+            }
+          });
+          gitment.render('container');
+        }
+        </script>
+      
+
+  </div>
+
 
 
         </div>
@@ -557,6 +723,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

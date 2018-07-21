@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NLP," />
 
 
 
@@ -87,13 +87,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Howieee&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/推荐算法/index.html">
+<meta name="description" content="这篇blog主要介绍对于句子分类的一种方法-Dynamic CNN，论文标题《A Convolutional Neural Network for Modelling Sentences》，主要介绍了一种动态top_k_max pooling的方法">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dynamic CNN for Modelling Sentences">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/Dynamic CNN/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
+<meta property="og:description" content="这篇blog主要介绍对于句子分类的一种方法-Dynamic CNN，论文标题《A Convolutional Neural Network for Modelling Sentences》，主要介绍了一种动态top_k_max pooling的方法">
 <meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/Dynamic_CNN/dynamic_k.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Dynamic_CNN/model.jpg">
+<meta property="og:updated_time" content="2018-07-21T07:23:54.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howieee&#39;s Blog">
+<meta name="twitter:title" content="Dynamic CNN for Modelling Sentences">
+<meta name="twitter:description" content="这篇blog主要介绍对于句子分类的一种方法-Dynamic CNN，论文标题《A Convolutional Neural Network for Modelling Sentences》，主要介绍了一种动态top_k_max pooling的方法">
+<meta name="twitter:image" content="http://yoursite.com/images/Dynamic_CNN/dynamic_k.jpg">
 
 
 
@@ -121,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/推荐算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/21/Dynamic CNN/"/>
 
 
 
 
 
-  <title> Category: 推荐算法 | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Dynamic CNN for Modelling Sentences | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -152,7 +160,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,103 +264,218 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        推荐算法
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/21/SANCF/" itemprop="url">
-              
-                <span itemprop="name">Self-Attentive Neural Collaborative Filtering</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-21T16:29:40+08:00"
-              content="2018-07-21" >
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/06/FFM/" itemprop="url">
-              
-                <span itemprop="name">Field-aware Factorization Machines</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-06T15:45:22+08:00"
-              content="2018-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/06/FM/" itemprop="url">
-              
-                <span itemprop="name">Factorization Machines</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-06T15:45:22+08:00"
-              content="2018-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/Dynamic CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howieee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howieee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Dynamic CNN for Modelling Sentences
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T14:57:34+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  268 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇blog主要介绍对于句子分类的一种方法-Dynamic CNN，论文标题《<a href="https://arxiv.org/abs/1404.2188" target="_blank" rel="noopener">A Convolutional Neural Network for Modelling Sentences</a>》，主要介绍了一种动态top_k_max pooling的方法</p>
+<a id="more"></a>
+<p>文章利用CNN来对文本提取特征，文本中的每个词对应一个词向量，然后用一维卷积来提取特征。论文主要提出了一种动态k_max pooling的方法。传统的max_pooling只取一个filter中的最大值，而k_max pooling取一个filter中的最大的k个值，并且保留这个k个值的相对顺序，这个好处是可以处理&quot;虽然…但是&quot;这种有空间关系的句子。k的选择往往是一个超参，文中提出利用以下公式来选择k</p>
+<p><img src="/images/Dynamic_CNN/dynamic_k.jpg" alt="dynamic_k"></p>
+<p>其中$k_{top}$是顶层卷积之后pooling的参数，$L$是卷积层的个数，$l$是当前卷积层的层数，$s$是sentence的长度，整体模型如下</p>
+<p><img src="/images/Dynamic_CNN/model.jpg" alt="model"></p>
+<p>模型整体比较简单，对比试验显示结果超过了传统方法。动态max-pooling的方法可以学习下。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/TailLabel_LSMLL/" rel="next" title="Does Tail Label Help for Large-Scale Multi-Label Learning">
+                <i class="fa fa-chevron-left"></i> Does Tail Label Help for Large-Scale Multi-Label Learning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/21/TCN/" rel="prev" title="Temporal Convolutional Network">
+                Temporal Convolutional Network <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -360,6 +483,45 @@
 
 
           
+  <div class="comments" id="comments">
+    
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+          render(state, instance) {
+            const container = document.createElement('div');
+            container.lang = "en-US";
+            container.className = 'gitment-container gitment-root-container';
+            container.appendChild(instance.renderHeader(state, instance));
+            container.appendChild(instance.renderEditor(state, instance));
+            container.appendChild(instance.renderComments(state, instance));
+            container.appendChild(instance.renderFooter(state, instance));
+            return container;
+          }
+        }
+        function showGitment() {
+          $("#gitment_title").attr("style", "display:none");
+          $("#container").attr("style", "").addClass("gitment_container");
+          var gitment = new Gitment({
+            id: window.location.pathname,
+            theme: myTheme,
+            owner: 'howieeeeeeee',
+            repo: 'howieeeeeeee.github.io',
+            oauth: {
+              client_id: '5eca9f26990a586072fe',
+              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
+            }
+          });
+          gitment.render('container');
+        }
+        </script>
+      
+
+  </div>
+
 
 
         </div>
@@ -557,6 +719,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
