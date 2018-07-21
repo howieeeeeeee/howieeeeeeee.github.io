@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="recommendation," />
+  <meta name="keywords" content="hexo,github," />
 
 
 
@@ -87,27 +87,18 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
-<meta name="keywords" content="recommendation">
+<meta name="description" content="踩坑记录">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Factorization Machines">
-<meta property="og:url" content="http://yoursite.com/2018/06/06/FM/index.html">
+<meta property="og:title" content="你好-Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/07/21/123/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
+<meta property="og:description" content="踩坑记录">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_example.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_model_d_2.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_linear_computation.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_grad.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_model_d.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_linear_svm.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_polykernel.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FM/fm_polykernel_svm.jpg">
-<meta property="og:updated_time" content="2018-04-21T13:34:48.000Z">
+<meta property="og:updated_time" content="2018-04-21T13:34:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Factorization Machines">
-<meta name="twitter:description" content="这篇blog主要介绍Factorization Machines，论文标题《Factorization Machines》，发表在2010年ICDM上。">
-<meta name="twitter:image" content="http://yoursite.com/images/FM/fm_example.jpg">
+<meta name="twitter:title" content="你好-Hexo">
+<meta name="twitter:description" content="踩坑记录">
 
 
 
@@ -135,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/06/FM/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/21/123/"/>
 
 
 
 
 
-  <title> Factorization Machines | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 你好-Hexo | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -280,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/FM/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/123/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -301,7 +292,7 @@
             
             
               
-                Factorization Machines
+                你好-Hexo
               
             
           </h1>
@@ -316,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T15:45:22+08:00">
-                2018-06-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T17:29:42+08:00">
+                2018-07-21
               </time>
             
 
@@ -339,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐算法</span>
+                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客</span>
                   </a>
                 </span>
 
@@ -369,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  773 字
+                  486 字
                 </span>
               
 
@@ -385,7 +376,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -404,37 +395,27 @@
       
 
       
-        <p>这篇blog主要介绍Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">Factorization Machines</a>》，发表在2010年ICDM上。</p>
+        <p>踩坑记录</p>
 <a id="more"></a>
-<p>Factorization Machines是一种新的模型，融合了SVM和factorization模型的优点，可以更好的处理特征之间的交互(interactions between variables)，并且可以处理稀疏的特征。特征的稀疏性来源于特征的one-hot编码，下图是电影评分的一个例子</p>
-<p><img src="/images/FM/fm_example.jpg" alt="fm_example" title="电影评分特征向量示例"></p>
-<p>可以看到User和Movie的特征中非零项只有一个，而零值特征很多。在特征向量中非零特征的个数远远小于向量长度时该特征向量就是稀疏的。</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>以d=2阶FM模型为例，模型如下</p>
-<p><img src="/images/FM/fm_model_d_2.jpg" alt="" title="2阶FM模型"></p>
-<p>其中$v_i$是$k$维的向量，$\omega_0$是全局bias，$\omega_i$是第$i$个特征的权重，$\omega_{i,j}=\langle v_i,v_j \rangle$对第$i$个特征和第$j$个特征进行建模，不同于只使用一个单独的实数值$\omega_{i,j} \in \Bbb R$，这也是FM模型的关键点。通过将$\omega_{i,j}$进行因子分解，FM可以更好的处理稀疏特征。比如在电影评分中，假设我们项估计A和ST的参数，但是在数据集中，A和ST并没有同时在一个特征向量中出现，那么最终得到的模型就是$\omega_{A,ST}=0$。但是通过将$\omega_{A,ST}$分解为$\langle \bf v_A,v_{ST} \rangle$，即使$\omega_{A,ST}$对应的特征没有同时出现，但是$\bf v_A$和$\bf v_{ST}$可以在其他与之有关的特征组合中学习，并且直观上来讲，相似的因子向量$\bf v$会有相似的结果。这一点和User，Item的矩阵分解相似。</p>
-<p>直接计算公式（1）的最后一部分的时间复杂度为$O(kn^2)$，按照如下方法可以得到$O(kn)$的方法</p>
-<p><img src="/images/FM/fm_linear_computation.jpg" alt="" title="2阶FM模型线性复杂度计算方法"><br>
-这个公式很重要，很多深度学习关于FM的计算都使用该方法进行tensor的计算。</p>
-<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
-<p>可以直接使用随机梯度下降进行训练<br>
-<img src="/images/FM/fm_grad.jpg" alt="" title="2阶FM模型关于参数的梯度">，作者提供了一个开源的实现<a href="http://www.libfm.org" target="_blank" rel="noopener">LIB$\bf FM^2$</a>，使用SGD并且支持element-wise和pairwise loss。</p>
-<h2 id="d阶fm模型"><a class="header-anchor" href="#d阶fm模型">¶</a>d阶FM模型</h2>
-<p><img src="/images/FM/fm_model_d.jpg" alt="" title="d阶FM模型"></p>
-<h2 id="与其他模型的对比"><a class="header-anchor" href="#与其他模型的对比">¶</a>与其他模型的对比</h2>
-<p>论文中给出了FM与SVM，MF，SVD++，PITF，FPMC的对比，本文只给出与SVM的对比。<br>
-线性SVM如下<br>
-<img src="/images/FM/fm_linear_svm.jpg" alt="" title="线性SVM模型"><br>
-可以看出这只是FM模型在d=1的情况</p>
-<p>多项式核SVM<br>
-多项式核定位为$K(x,z)=(\langle x,z \rangle)^d$，如果d=2，对应于以下的映射<br>
-<img src="/images/FM/fm_polykernel.jpg" alt="" title="d=2的多项式核"><br>
-此时，SVM模型为<br>
-<img src="/images/FM/fm_polykernel_svm.jpg" alt="" title="多项式核SVM"><br>
-与FM不同的是，多项式核SVM中的$\omega_{i,j}$是独立的，而FM通过因子分解，可以有更强的关联性。<br>
-最主要的优点是，当特征向量中的两个向量没有同时出现时（上文中的例子），FM依旧可以学习参数而SVM不行。除此之外，SVM需要对偶方法而FM只需要梯度下降进行优化即可。</p>
-<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
-<p>FM优势更大，适用于稀疏特征向量并且优化简单，在一定条件下FM等同于很多模型，包括MF,SVD++,PITF和FPMC。</p>
+<h2 id="搭建"><a class="header-anchor" href="#搭建">¶</a>搭建</h2>
+<p>使用Hexo搭建github博客，主要参考<a href="http://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707219.html</a>， <a href="http://www.cnblogs.com/fengxiongZz/p/7707568.html" target="_blank" rel="noopener">http://www.cnblogs.com/fengxiongZz/p/7707568.html</a>， <a href="http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</a>，推荐前两个链接。</p>
+<h2 id="部署"><a class="header-anchor" href="#部署">¶</a>部署</h2>
+<p>在本地localhost:4000预览和部署github.io后有不一致的地方，可以用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>之后等一段时间刷新</p>
+<p>使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>查看localhost:4000本地预览</p>
+<h2 id="评论"><a class="header-anchor" href="#评论">¶</a>评论</h2>
+<p>添加评论，使用Gitment，详见<a href="https://meesong.github.io/StaticBlog/2017/NexT+Gitment/" target="_blank" rel="noopener">https://meesong.github.io/StaticBlog/2017/NexT+Gitment/</a>, 在GitHub上注册新应用，链接：<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a></p>
+<p>尝试过Gitalk，没成功。</p>
+<h2 id="脚注"><a class="header-anchor" href="#脚注">¶</a>脚注</h2>
+<p><a href="http://baishusama.github.io/2016/12/24/hexo-render-markdown-it-and-its-plugins/" target="_blank" rel="noopener">添加脚注</a></p>
+<h2 id="toc"><a class="header-anchor" href="#toc">¶</a>TOC</h2>
+<p>为了添加脚注，将原有的 hexo-redner-marked 渲染引擎换成了 hexo-render-markdown-it ，但是在该引擎下TOC会有一点问题。首先在博客根目录下的 config.yml 配置文件中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">markdown:</span><br><span class="line">  render:</span><br><span class="line">    html: true # Doesn&apos;t escape HTML content so the tags will appear as html.</span><br><span class="line">    xhtmlOut: false # Parser will not produce XHTML compliant code.</span><br><span class="line">    breaks: true # Parser produces `&lt;br&gt;` tags every time there is a line break in the source document.</span><br><span class="line">    linkify: false # Returns text links as text.</span><br><span class="line">    typographer: true # Substitution of common typographical elements will take place.</span><br><span class="line">    quotes: &apos;“”‘’&apos; # &quot;double&quot; will be turned into “single”</span><br><span class="line">                   # &apos;single&apos; will be turned into ‘single’</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    # - markdown-it-checkbox # 本行启用了 checkbox 插件</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    # - markdown-it-ins</span><br><span class="line">  anchors:</span><br><span class="line">    level: 1 # Minimum level for ID creation. (Ex. h2 to h6)</span><br><span class="line">    collisionSuffix: &apos;v&apos; # A suffix that is prepended to the number given if the ID is repeated.</span><br><span class="line">    permalink: true # If true, creates an anchor tag with a permalink besides the heading.</span><br><span class="line">    permalinkClass: header-anchor # Class used for the permalink anchor tag.</span><br><span class="line">    permalinkSymbol: ¶  # The symbol used to make the permalink.</span><br></pre></td></tr></table></figure>
+<p>其中 html:true 可以在md文件中插入html的内容，比如<code>&lt;!--more--&gt;</code> 来手动指定摘要。<br>
+这个这个渲染引擎在table of contents中会有 ¶ 这个符号。如果要去掉，参考<a href="https://dwatow.github.io/2018/01-28-about-hexo/how-to-hexo-markdown-it-toc/#fnref6" target="_blank" rel="noopener">这篇blog</a>，主要是在 D:\hexo\node_modules\hexo\lib\plugins\helper 中将 toc.js 进行修改，将其中的变量 text 变为 <code>const text = _.escape($(this).attr('id') || $(this).text());</code></p>
 
       
     </div>
@@ -464,7 +445,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
           
         </div>
       
@@ -477,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/FFM/" rel="next" title="Field-aware Factorization Machines">
-                <i class="fa fa-chevron-left"></i> Field-aware Factorization Machines
+              <a href="/2018/07/21/SANCF/" rel="next" title="Self-Attentive Neural Collaborative Filtering">
+                <i class="fa fa-chevron-left"></i> Self-Attentive Neural Collaborative Filtering
               </a>
             
           </div>
@@ -486,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/06/FM_DeepLearning/" rel="prev" title="FM in Deep Learning">
-                FM in Deep Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -654,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d阶fm模型"><span class="nav-number">3.</span> <span class="nav-text">d阶fm模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与其他模型的对比"><span class="nav-number">4.</span> <span class="nav-text">与其他模型的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论"><span class="nav-number">3.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">4.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc"><span class="nav-number">5.</span> <span class="nav-text">toc</span></a></li></ol></div>
             
 
           </div>
