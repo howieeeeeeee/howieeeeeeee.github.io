@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NLP,deep learning," />
 
 
 
@@ -87,13 +87,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Howieee&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
+<meta name="keywords" content="NLP,deep learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Very Deep Convolutional Networks for Text Classification">
+<meta property="og:url" content="http://yoursite.com/2018/08/25/VDCNN/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
+<meta property="og:description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
 <meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/model.jpg">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/convblock.jpg">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/depth_num.jpg">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/datasets.jpg">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/exp.jpg">
+<meta property="og:image" content="http://yoursite.com/images/VDCNN/shortcut.jpg">
+<meta property="og:updated_time" content="2018-08-25T06:18:34.454Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howieee&#39;s Blog">
+<meta name="twitter:title" content="Very Deep Convolutional Networks for Text Classification">
+<meta name="twitter:description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
+<meta name="twitter:image" content="http://yoursite.com/images/VDCNN/model.jpg">
 
 
 
@@ -121,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/25/VDCNN/"/>
 
 
 
 
 
-  <title> Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Very Deep Convolutional Networks for Text Classification | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -152,9 +164,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-   page-home 
- ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -257,9 +267,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -268,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/SeqGAN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/VDCNN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -289,10 +299,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2018/04/27/SeqGAN/" itemprop="url">
-                  SeqGAN
-                </a>
+                Very Deep Convolutional Networks for Text Classification
               
             
           </h1>
@@ -307,8 +314,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T16:11:34+08:00">
-                2018-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T13:14:43+08:00">
+                2018-08-25
               </time>
             
 
@@ -330,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习GAN/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习GAN</span>
+                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习NLP</span>
                   </a>
                 </span>
 
@@ -360,184 +367,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  650 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time</span>
-                
-                <span title="Reading time">
-                  2 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本文主要介绍AAAI 2017的论文<a href="https://arxiv.org/abs/1609.05473.pdf" target="_blank" rel="noopener">SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/27/SeqGAN/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/IRGAN/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howieee">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howieee's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/24/IRGAN/" itemprop="url">
-                  IRGAN
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T11:10:24+08:00">
-                2018-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习推荐算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article</span>
-                
-                <span title="Words count in article">
-                  879 字
+                  785 字
                 </span>
               
 
@@ -572,54 +402,100 @@
       
 
       
+        <p>这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《<a href="https://arxiv.org/pdf/1606.01781.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Text Classification</a>》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。</p>
+<a id="more"></a>
+<p>CNN在CV和Speech领域已经得到了巨大的成功，但是在NLP任务上并没有像前两者一样有显著突破。因为很多NLP任务的时序性，模型大多都基于RNN的结构，也就是将character或者work看作sequence输入，人们利用LSTM已经有了很好的结果。但是LSTM是一种很通用的模型，针对特定的NLP任务并没有特别的设计，这一点不像CNN有很多不同的设计结构。而文本和图像的相似之处在于局部构成整体，比如字符构成词，此构成短语，短语构成句子。因此文章提出利用CNN来处理文本分类。当然，已经有研究来利用CNN解决文本分类，但是之前的模型都是浅层的CNN结构，并没有深层模型，所以这篇文章的主要贡献是如何将模型做深。为了达到这一点，文章主要借鉴了VGG和Resnet的设计思想。</p>
+<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
+<p>整体模型如下<br>
+<img src="/images/VDCNN/model.jpg" alt="model"><br>
+文中的$Temporal$ $convolutional$就是一维卷积。首先通过日常的$embedding$操作将每个字符进行映射，然后进行$kernel$ $size$为3,$filter$ $ number$为64的卷积，然后就是累加的时序卷积模块。受VGG和Resnet的启发，作者在进行卷积时，如果进行了$pooling$操作，那么卷积时的$filter$ $ number$变为两倍，否则不变，这样做的原因是尽可能的保留最多的信息，在层数加深的时候模型加宽。每个卷积模块如下图<br>
+<img src="/images/VDCNN/convblock.jpg" alt="convblock"><br>
+可以看出在每个卷积模块中有进行两次卷积、$batchnorm$和$relu$的操作。整体结构可以看作是VGG在时序上的变体，同时为了做深加入了Resnet的连接。注意在全连接层中没有使用$dropout$<br>
+。</p>
+<p>文章中探索了三种不同的下采样方法，第一种是采用$stride$为2的卷积层操作（$ResNet-like$）,第二种是$k-max$ $pooling$,第三种是$kernel$ $size$为3$stride$为2的$mak-pooling$操作（VGG-like）。之后的实验也针对这三种给了实验结果。</p>
+<p>不同convblock的个数组成不同的深度，如下图<br>
+<img src="/images/VDCNN/depth_num.jpg" alt="depth_num"></p>
+<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
+<p>文章在大规模的文本分类数据集上进行实验，如下<br>
+<img src="/images/VDCNN/datasets.jpg" alt="datasets"><br>
+<font color="#dd0000">数据集中类别越少难度越大，因为梯度信息更少。</font>实验中字符数为69，包括字母数字和一些符号，每个文本通过$padding$或者$truncated$得到固定长度1014,$character$ $embedding$设为16，$mini<br>
+-batch$$size$为128，采用$SGD$,初始学习率为0.01，动量为0.9。实验结果如下：<br>
+<img src="/images/VDCNN/exp.jpg" alt="exp"><br>
+$shortcut$的实验如下<br>
+<img src="/images/VDCNN/shortcut.jpg" alt="shortcut"><br>
+即使加了$shortcut$,深层结构的结果也没有浅层好…</p>
+<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
+<p>github上有人复现了模型，<a href="https://github.com/zonetrooper32/VDCNN" target="_blank" rel="noopener">代码</a></p>
+<p>抛开结果看的话，可以借鉴这种思路</p>
+
+      
+    </div>
+
+    <div>
+      
         
-          <p>本文主要介绍SIGIR2017的论文<a href="https://arxiv.org/pdf/1705.10513.pdf" target="_blank" rel="noopener">IRGAN: A Minimax Game for Unifying Generative and Discriminative Information Retrieval Models</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/24/IRGAN/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/21/SANCF/" rel="next" title="Self-Attentive Neural Collaborative Filtering">
+                <i class="fa fa-chevron-left"></i> Self-Attentive Neural Collaborative Filtering
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -627,6 +503,45 @@
 
 
           
+  <div class="comments" id="comments">
+    
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+          render(state, instance) {
+            const container = document.createElement('div');
+            container.lang = "en-US";
+            container.className = 'gitment-container gitment-root-container';
+            container.appendChild(instance.renderHeader(state, instance));
+            container.appendChild(instance.renderEditor(state, instance));
+            container.appendChild(instance.renderComments(state, instance));
+            container.appendChild(instance.renderFooter(state, instance));
+            return container;
+          }
+        }
+        function showGitment() {
+          $("#gitment_title").attr("style", "display:none");
+          $("#container").attr("style", "").addClass("gitment_container");
+          var gitment = new Gitment({
+            id: window.location.pathname,
+            theme: myTheme,
+            owner: 'howieeeeeeee',
+            repo: 'howieeeeeeee.github.io',
+            oauth: {
+              client_id: '5eca9f26990a586072fe',
+              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
+            }
+          });
+          gitment.render('container');
+        }
+        </script>
+      
+
+  </div>
+
 
 
         </div>
@@ -647,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -710,6 +634,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -824,6 +764,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
