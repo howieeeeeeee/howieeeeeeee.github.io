@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="recommendation," />
+  <meta name="keywords" content="recommendation,deep learning," />
 
 
 
@@ -87,24 +87,32 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
-<meta name="keywords" content="recommendation">
+<meta name="description" content="这篇blog主要介绍Adversarial Personalized Ranking for Recommendation，论文标题《Adversarial Personalized Ranking for Recommendation》，发表在2018年SIGIR上，文章的核心是利用对抗噪声来增加embedding的稳定性。">
+<meta name="keywords" content="recommendation,deep learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Field-aware Factorization Machines">
-<meta property="og:url" content="http://yoursite.com/2018/06/06/FFM/index.html">
+<meta property="og:title" content="Adversarial Personalized Ranking for Recommendation">
+<meta property="og:url" content="http://yoursite.com/2018/08/25/APR/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
+<meta property="og:description" content="这篇blog主要介绍Adversarial Personalized Ranking for Recommendation，论文标题《Adversarial Personalized Ranking for Recommendation》，发表在2018年SIGIR上，文章的核心是利用对抗噪声来增加embedding的稳定性。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_example.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_sub_grad.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_adgrad.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_training.jpg">
-<meta property="og:image" content="http://yoursite.com/images/FFM/ffm_hash.jpg">
-<meta property="og:updated_time" content="2018-04-21T13:34:52.000Z">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/fig_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_5.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/eq_6.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/alg_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/datasets.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/exp_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/exp_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/exp_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/APR/exp_4.jpg">
+<meta property="og:updated_time" content="2018-08-25T08:59:47.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Field-aware Factorization Machines">
-<meta name="twitter:description" content="这篇blog主要介绍Field-aware Factorization Machines，论文标题《Field-aware Factorization Machines for CTR Prediction》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《Fie">
-<meta name="twitter:image" content="http://yoursite.com/images/FFM/ffm_example.jpg">
+<meta name="twitter:title" content="Adversarial Personalized Ranking for Recommendation">
+<meta name="twitter:description" content="这篇blog主要介绍Adversarial Personalized Ranking for Recommendation，论文标题《Adversarial Personalized Ranking for Recommendation》，发表在2018年SIGIR上，文章的核心是利用对抗噪声来增加embedding的稳定性。">
+<meta name="twitter:image" content="http://yoursite.com/images/APR/eq_1.jpg">
 
 
 
@@ -132,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/06/FFM/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/25/APR/"/>
 
 
 
 
 
-  <title> Field-aware Factorization Machines | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Adversarial Personalized Ranking for Recommendation | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -277,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/FFM/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/APR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -298,7 +306,7 @@
             
             
               
-                Field-aware Factorization Machines
+                Adversarial Personalized Ranking for Recommendation
               
             
           </h1>
@@ -313,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-06T15:45:22+08:00">
-                2018-06-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T15:58:47+08:00">
+                2018-08-25
               </time>
             
 
@@ -336,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐算法</span>
+                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习NLP</span>
                   </a>
                 </span>
 
@@ -366,7 +374,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  714 字
+                  649 字
                 </span>
               
 
@@ -382,7 +390,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -401,37 +409,42 @@
       
 
       
-        <p>这篇blog主要介绍Field-aware Factorization Machines，论文标题《<a href="https://www.csie.ntu.edu.tw/~cjlin/papers/ffm.pdf" target="_blank" rel="noopener">Field-aware Factorization Machines for CTR Prediction</a>》，发表在2016年ACM RecSys上。论文一作在2017年WWW（International Conference on World Wide Web Companion）上发表了《<a href="https://arxiv.org/abs/1701.04099" target="_blank" rel="noopener">Field-aware Factorization Machines in a Real-world Online Advertising System</a>》，主要涉及在工业上的实现和应用。本文关注第一篇文章。</p>
+        <p>这篇blog主要介绍Adversarial Personalized Ranking for Recommendation，论文标题《<a href="https://arxiv.org/abs/1808.03908" target="_blank" rel="noopener">Adversarial Personalized Ranking for Recommendation</a>》，发表在2018年SIGIR上，文章的核心是利用对抗噪声来增加embedding的稳定性。</p>
 <a id="more"></a>
-<p>Field-aware Factorization Machines（FFM）是对FM模型的进一步改进。FFM提出field的概念，指出在特征向量中，某些特征属于同一个field，在进行特征之间的点积时（$\langle v_i,v_j \rangle$），不同的field之间的点积的因子向量不同。比如A和B，C这两个特征进行interaction，传统的FM直接计算$\langle v_A,v_B \rangle$和$\langle v_A,v_C \rangle$，$v_A$是相同的。但是FFM考虑对应不同field，比如B和C，A中也要有不同的参数，即应该$\langle v_A^B,v_B \rangle$和$\langle v_A^C,v_C \rangle$。用论文中的例子来说明，ESPN，Vogue和NBC属于field Publisher§，Nike，Gucci和Adidas属于field Advertiser(A)，Male和Female属于field Gender(G)，考虑以下例子</p>
-<p><img src="/images/FFM/ffm_example.jpg" alt="ffm_example" title="广告点击例子"></p>
-<p>对于FM，因子部分的计算为<br>
-$$ \langle v_{ESPN},v_{Nike} \rangle+\langle v_{ESPN},v_{Male} \rangle+\langle v_{Nike},v_{Male} \rangle$$<br>
-但是在$\langle v_{ESPN},v_{Nike} \rangle$和$\langle v_{ESPN},v_{Male} \rangle$中，$v_{ESPN}$的影响是不同的。因此，FFM改进为<br>
-$$ \langle v_{ESPN,A},v_{Nike,P} \rangle+\langle v_{ESPN,G},v_{Male,P} \rangle+\langle v_{Nike,G},v_{Male,A} \rangle$$</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>FFM的一阶部分与FM相同，而在特征之间相互时，模型如下<br>
-$$ \phi_{FFM}({\bf v},{\bf x})=\sum_{j_1=1}^{n}\sum_{j_2=j_1+1}^{n}\langle v_{j_1,f_2},v_{j_2,f_1}\rangle x_{j_1}x_{j_2}$$</p>
-<p>其中$f_1$和$f_2$分别是$j_1$和$j_2$对应的field。如果$f$是field的个数，那么二阶部分的参数为$nfk<br>
-$计算上式的时间复杂度为$O(n^2k)$，但是由于有很多不同的field，每个参数向量只要考虑对应的field即可，那么有</p>
-<p>$$ k_{FFM} \ll k_{FM} $$</p>
-<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
-<p>FFM的训练使用AdaGrad，论文<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>中证明了在矩阵分解上AdaGrad的有效性，而MF是FFM的一个特例。<br>
-首先计算sub-gradients<br>
-<img src="/images/FFM/ffm_sub_grad.jpg" alt="ffm_sub_grad" title="FFM梯度"><br>
-$w$为本文中的$v$,其中要最小化的目标函数为CTR预估中的<br>
-$$\frac{\lambda}{2}||\omega||^2_2+\sum_{i=1}^{m}log(1+exp(-y_i \phi_{FFM}(w,x_i)))$$<br>
-之后的计算如下<br>
-<img src="/images/FFM/ffm_adgrad.jpg" alt="ffm_adgrad"><br>
-整体算法为<br>
-<img src="/images/FFM/ffm_training.jpg" alt="ffm_training"><br>
-目前可以使用开源代码<a href="http://www.csie.ntu.edu.tw/~cjlin/libffm" target="_blank" rel="noopener">LIBFFM</a></p>
-<p>如果特征特别的多，在Poly Kernel SVM中考虑特征的两两匹配是十分耗时的。通用的机器学习包Vowpal Wabbit(VW)考虑使用哈希<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。作者也采用相似的方法<br>
-<img src="/images/FFM/ffm_hash.jpg" alt="ffm_hash"><br>
-$h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
+<p>作者发现在item recommendation中，使用matrix factorization+BPR是不够鲁棒的，一旦模型参数有变化，模型的预测结果也会有很大的变化。其实在非推荐领域，比如在图像中这种现象非常的常见，imagenet上的分类模型对于加入图像扰动是十分脆弱的。作者提出利用对抗训练的方法来增加推荐模型的鲁棒性，通过在MF上增加user和iterm的对抗扰动来提高模型的鲁棒性。具体的，与GAN相同，模型通过最大化对抗扰动带来的BPR噪声来得到对抗扰动并最小化整体的BPR损失和对抗扰动带来的额外损失。</p>
+<h2 id="符号"><a class="header-anchor" href="#符号">¶</a>符号</h2>
+<p>作者在文中主要关注MF模型与BPR损失，一些符号约定如下：<br>
+<img src="/images/APR/eq_1.jpg" alt="eq_1"><br>
+$p_u$和$q_i$是$K$维向量，表示用户u和item i的embedding。$\hat{y}$表示对于用户u和item i的预测,Bayesian Personalized Ranking损失如下<br>
+<img src="/images/APR/eq_2.jpg" alt="eq_2"><br>
+$i$为与$u$有联系的item，$j$则相反。</p>
+<h2 id="mf-bpr-脆弱性"><a class="header-anchor" href="#mf-bpr-脆弱性">¶</a>MF-BPR 脆弱性</h2>
+<p>为了证明模型的脆弱性，需要添加扰动。但是u，i和j都是离散的，扰动会改变用户和item，因此作者在embedding层也就是模型的参数上进行处理，添加随机扰动和对抗扰动，效果如下<br>
+<img src="/images/APR/fig_1.jpg" alt="fig_1"><br>
+对抗扰动通过下式得到，<br>
+<img src="/images/APR/eq_3.jpg" alt="eq_3"><br>
+具体的，根据 I. Goodfellow, J. Shlens, and C. Szegedy. Explaining and harnessing adversarial examples. In ICLR, 2015. 的论文，可以进行近似求解<br>
+<img src="/images/APR/eq_4.jpg" alt="eq_4"><br>
+从实验图中也可以看出，随机扰动和对抗扰动对于模型性能都有影响，而对抗扰动对于模型性能下降更大。并且虽然对抗扰动是通过部分训练数据得到的，但是丝毫不会减少它对于模型的干扰。</p>
+<h2 id="adversarial-personalized-ranking"><a class="header-anchor" href="#adversarial-personalized-ranking">¶</a>Adversarial Personalized Ranking</h2>
+<p>整体损失函数如下<br>
+<img src="/images/APR/eq_5.jpg" alt="eq_5"><br>
+对抗扰动的部分可以看作模型的对抗正则化项，minmax的形式如下<br>
+<img src="/images/APR/eq_6.jpg" alt="eq_6"><br>
+具体的训练分为两部分，首先为生成对抗扰动，然后是进行优化<br>
+<img src="/images/APR/alg_1.jpg" alt="alg_1"></p>
+<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
+<p>实验数据集如下<br>
+<img src="/images/APR/datasets.jpg" alt="datasets"><br>
+实验比较多，不再一一赘述，这里仅贴一些实验结果。(实验部分的撰写还是经典的Xiangnan He的写法)<br>
+<img src="/images/APR/exp_1.jpg" alt="exp_1"><br>
+<img src="/images/APR/exp_2.jpg" alt="exp_2"><br>
+<img src="/images/APR/exp_3.jpg" alt="exp_3"><br>
+<img src="/images/APR/exp_4.jpg" alt="exp_4"></p>
 <h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
-<p>文章的实验部分就不贴了。关于FM还有很多其他的改进，比如<a href="http://delivery.acm.org/10.1145/2650000/2645730/p265-chen.pdf?ip=223.3.90.8&amp;id=2645730&amp;acc=ACTIVE%20SERVICE&amp;key=BF85BBA5741FDC6E%2EEEBE655830483280%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&amp;__acm__=1524212729_8fcc86a87dc7d28956492dd958e4f5bd" target="_blank" rel="noopener">Gradient boosting factorization machines</a>和<a href="http://wnzhang.net/papers/lambdafm.pdf" target="_blank" rel="noopener">LambdaFM</a>，有时间的话再去研究。</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">A learning-rate schedule for stochastic gradient methods to matrix factorization</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">&quot;Vowpal Wabbit&quot; https://github.com/JohnLangford/vowpal wabbit/wiki.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<p>作者公开了代码，<a href="https://github.com/hexiangnan/adversarial_personalized_ranking" target="_blank" rel="noopener">代码</a><br>
+对抗的方法还是可以借鉴的，用于embedding层面的更新，有时间尝试下</p>
+
       
     </div>
 
@@ -462,6 +475,8 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
           
             <a href="/tags/recommendation/" rel="tag"># recommendation</a>
           
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
         </div>
       
 
@@ -473,8 +488,8 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/FM/" rel="next" title="Factorization Machines">
-                <i class="fa fa-chevron-left"></i> Factorization Machines
+              <a href="/2018/08/25/VDCNN/" rel="next" title="Very Deep Convolutional Networks for Text Classification">
+                <i class="fa fa-chevron-left"></i> Very Deep Convolutional Networks for Text Classification
               </a>
             
           </div>
@@ -482,10 +497,6 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/06/FM_DeepLearning/" rel="prev" title="FM in Deep Learning">
-                FM in Deep Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +661,7 @@ $h(j_1,j_2)$是$\omega$对应两个特征的下标。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#符号"><span class="nav-number">1.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mf-bpr-脆弱性"><span class="nav-number">2.</span> <span class="nav-text">mf-bpr-脆弱性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adversarial-personalized-ranking"><span class="nav-number">3.</span> <span class="nav-text">adversarial-personalized-ranking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
