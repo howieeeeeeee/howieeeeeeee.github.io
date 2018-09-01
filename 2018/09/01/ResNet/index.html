@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://yoursite.com/images/ResNet/pre-activation.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ResNet/activation.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ResNet/model_ori_pro.jpg">
-<meta property="og:updated_time" content="2018-09-01T12:16:50.507Z">
+<meta property="og:updated_time" content="2018-09-01T12:20:21.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ResNet">
 <meta name="twitter:description" content="这篇blog主要介绍ResNet，涉及两篇论文，分别是《Deep Residual Learning for Image Recognition》和《Identity Mappings in Deep Residual Networks》，分别发表在2016年CVPR和ECCV上。">
@@ -429,7 +429,7 @@
 <h2 id="bottleneck-结构"><a class="header-anchor" href="#bottleneck-结构">¶</a>Bottleneck 结构</h2>
 <p>作者在文中提出了bottleneck结构，如下图<br>
 <img src="/images/ResNet/bottleneck.jpg" alt="bottleneck"><br>
-这个结构的出发点是为了减少训练时间，第一个$1\times1$卷积是为了降维，第二个$1\times1$卷积是为了升维，这样中间的$3\timnes3$卷积会有更小的输入输出维度。图中左右两个结构有相同的时间复杂度。而之前介绍的方案B中的shortcut也是为了时间复杂度和模型大小考虑的，如果换成C，时间复杂度和模型大小都要翻倍。如果不考虑这些的话，可以使用C来得到更好的效果。<br>
+这个结构的出发点是为了减少训练时间，第一个$1\times1$卷积是为了降维，第二个$1\times1$卷积是为了升维，这样中间的$3\times3$卷积会有更小的输入输出维度。图中左右两个结构有相同的时间复杂度。而之前介绍的方案B中的shortcut也是为了时间复杂度和模型大小考虑的，如果换成C，时间复杂度和模型大小都要翻倍。如果不考虑这些的话，可以使用C来得到更好的效果。<br>
 <font color="#dd0000">注意RELU是加在输出和shortcut相加之后。</font></p>
 <h2 id="探索-identity-mappings"><a class="header-anchor" href="#探索-identity-mappings">¶</a>探索 Identity Mappings</h2>
 <p>以上内容是第一篇论文，接下来这部分是Kaiming大神的第二篇论文，专门来讨论残差网络中应该使用哪种Identity Mapping。首先回顾下残差结构<br>
