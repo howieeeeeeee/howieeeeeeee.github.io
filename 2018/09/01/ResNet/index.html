@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deep learning,NLP," />
+  <meta name="keywords" content="deep learning," />
 
 
 
@@ -87,25 +87,34 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
-<meta name="keywords" content="deep learning,NLP">
+<meta name="description" content="这篇blog主要介绍ResNet，涉及两篇论文，分别是《Deep Residual Learning for Image Recognition》和《Identity Mappings in Deep Residual Networks》，分别发表在2016年CVPR和ECCV上。">
+<meta name="keywords" content="deep learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Very Deep Convolutional Networks for Text Classification">
-<meta property="og:url" content="http://yoursite.com/2018/08/25/VDCNN/index.html">
+<meta property="og:title" content="ResNet">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/ResNet/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
+<meta property="og:description" content="这篇blog主要介绍ResNet，涉及两篇论文，分别是《Deep Residual Learning for Image Recognition》和《Identity Mappings in Deep Residual Networks》，分别发表在2016年CVPR和ECCV上。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/convblock.jpg">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/depth_num.jpg">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/datasets.jpg">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/exp.jpg">
-<meta property="og:image" content="http://yoursite.com/images/VDCNN/shortcut.jpg">
-<meta property="og:updated_time" content="2018-08-25T06:18:34.454Z">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/deep_shallow.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/exp_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/bottleneck.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/residual_unit.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/model_ori_pro.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/ep_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/ep_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/ep_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/skip_model.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/skip_result.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/ep_4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/ep_5.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/pre-activation.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/activation.jpg">
+<meta property="og:image" content="http://yoursite.com/images/ResNet/model_ori_pro.jpg">
+<meta property="og:updated_time" content="2018-09-01T12:16:50.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Very Deep Convolutional Networks for Text Classification">
-<meta name="twitter:description" content="这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《Very Deep Convolutional Networks for Text Classification》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。">
-<meta name="twitter:image" content="http://yoursite.com/images/VDCNN/model.jpg">
+<meta name="twitter:title" content="ResNet">
+<meta name="twitter:description" content="这篇blog主要介绍ResNet，涉及两篇论文，分别是《Deep Residual Learning for Image Recognition》和《Identity Mappings in Deep Residual Networks》，分别发表在2016年CVPR和ECCV上。">
+<meta name="twitter:image" content="http://yoursite.com/images/ResNet/deep_shallow.jpg">
 
 
 
@@ -133,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/25/VDCNN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/01/ResNet/"/>
 
 
 
 
 
-  <title> Very Deep Convolutional Networks for Text Classification | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> ResNet | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -278,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/VDCNN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/ResNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -299,7 +308,7 @@
             
             
               
-                Very Deep Convolutional Networks for Text Classification
+                ResNet
               
             
           </h1>
@@ -314,8 +323,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T13:14:43+08:00">
-                2018-08-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-01T15:13:29+08:00">
+                2018-09-01
               </time>
             
 
@@ -337,8 +346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习NLP</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -367,7 +376,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  785 字
+                  1,834 字
                 </span>
               
 
@@ -383,7 +392,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  3 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -402,31 +411,59 @@
       
 
       
-        <p>这篇blog主要介绍Very Deep Convolutional Networks for Text Classification，论文标题《<a href="https://arxiv.org/pdf/1606.01781.pdf" target="_blank" rel="noopener">Very Deep Convolutional Networks for Text Classification</a>》，发表在2017年EACL上，文章的核心是利用VGG结构和ResNet结构构造深层的卷积神经网络进行文本分类。</p>
+        <p>这篇blog主要介绍ResNet，涉及两篇论文，分别是《<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition</a>》和《<a href="http://cn.arxiv.org/pdf/1603.05027" target="_blank" rel="noopener">Identity Mappings in Deep Residual Networks</a>》，分别发表在2016年CVPR和ECCV上。</p>
 <a id="more"></a>
-<p>CNN在CV和Speech领域已经得到了巨大的成功，但是在NLP任务上并没有像前两者一样有显著突破。因为很多NLP任务的时序性，模型大多都基于RNN的结构，也就是将character或者work看作sequence输入，人们利用LSTM已经有了很好的结果。但是LSTM是一种很通用的模型，针对特定的NLP任务并没有特别的设计，这一点不像CNN有很多不同的设计结构。而文本和图像的相似之处在于局部构成整体，比如字符构成词，此构成短语，短语构成句子。因此文章提出利用CNN来处理文本分类。当然，已经有研究来利用CNN解决文本分类，但是之前的模型都是浅层的CNN结构，并没有深层模型，所以这篇文章的主要贡献是如何将模型做深。为了达到这一点，文章主要借鉴了VGG和Resnet的设计思想。</p>
+<h2 id="背景"><a class="header-anchor" href="#背景">¶</a>背景</h2>
+<p>ResNet现在可以说是很多网络设计的基石，均得益于Kaiming大神提出的残差结构。网络上有很多关于ResNet的介绍，这篇文章主要是自己看论文做的一些总结，也是为了方便以后查阅。</p>
+<p>文章中给出了一个例子，即把一个深层网络的较前部分的参数设置为相同层数的浅层网络，而深层部分只是做一个恒等映射，这样该深层网络会有和浅层网络相同的效果。那么对这个恒等映射部分进行学习的话深层网络应该会有更好的效果，因此得到的结论是深层网络的效果要好于浅层网络，至少相同。但是很多实验却并不能验证这个结论。<br>
+<img src="/images/ResNet/deep_shallow.jpg" alt="deep_shallow"><br>
+深层网络会出现梯度消失或者爆炸，使其难以收敛。那么为了解决这个问题BN和辅助loss都可以使用，这样在训练时网络是可以收敛的，但是在深层网络中会出现“退化”现象，也就是随着网络层数的增加网络的效果会变得越来越差。退化并不是过拟合造成的，应该是深层网络难以优化造成的。所以，为了解决难以优化的问题，ResNet使用残差结构，而残差比原来的映射更容易学习。文中举了一个极端的例子，如果shortcut中的恒等映射是最优的，那么让残差为0比直接学习原来的映射要容易的多。</p>
 <h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p>整体模型如下<br>
-<img src="/images/VDCNN/model.jpg" alt="model"><br>
-文中的$Temporal$ $convolutional$就是一维卷积。首先通过日常的$embedding$操作将每个字符进行映射，然后进行$kernel$ $size$为3,$filter$ $ number$为64的卷积，然后就是累加的时序卷积模块。受VGG和Resnet的启发，作者在进行卷积时，如果进行了$pooling$操作，那么卷积时的$filter$ $ number$变为两倍，否则不变，这样做的原因是尽可能的保留最多的信息，在层数加深的时候模型加宽。每个卷积模块如下图<br>
-<img src="/images/VDCNN/convblock.jpg" alt="convblock"><br>
-可以看出在每个卷积模块中有进行两次卷积、$batchnorm$和$relu$的操作。整体结构可以看作是VGG在时序上的变体，同时为了做深加入了Resnet的连接。注意在全连接层中没有使用$dropout$<br>
-。</p>
-<p>文章中探索了三种不同的下采样方法，第一种是采用$stride$为2的卷积层操作（$ResNet-like$）,第二种是$k-max$ $pooling$,第三种是$kernel$ $size$为3$stride$为2的$mak-pooling$操作（VGG-like）。之后的实验也针对这三种给了实验结果。</p>
-<p>不同convblock的个数组成不同的深度，如下图<br>
-<img src="/images/VDCNN/depth_num.jpg" alt="depth_num"></p>
+<p>整体的网络架构都很熟悉了，这部分抠一下每个残差block的细节。</p>
+<p>在网络中，如果输入和输出的feature map大小相同，那么filter number不变，如果输出的feature map是输入的一半，那么filter number加倍。这是受VGG的启发，为了保证一定的复杂度。下采样使用卷积操作，设置stride为2。因为存在着filter number的不一致，那么在残差结构的shortcut中，有两种操作，一种是通过“补0”(padding)来实现维度一致，另一种是通过$1\times1$卷积来实现升唯。而不管采取哪种方法，都还需要对应的下采样来保持feature map的大小一致。并且在每个卷积之后和激活之前，都加入BN。</p>
 <h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
-<p>文章在大规模的文本分类数据集上进行实验，如下<br>
-<img src="/images/VDCNN/datasets.jpg" alt="datasets"><br>
-<font color="#dd0000">数据集中类别越少难度越大，因为梯度信息更少。</font>实验中字符数为69，包括字母数字和一些符号，每个文本通过$padding$或者$truncated$得到固定长度1014,$character$ $embedding$设为16，$mini<br>
--batch$$size$为128，采用$SGD$,初始学习率为0.01，动量为0.9。实验结果如下：<br>
-<img src="/images/VDCNN/exp.jpg" alt="exp"><br>
-$shortcut$的实验如下<br>
-<img src="/images/VDCNN/shortcut.jpg" alt="shortcut"><br>
-即使加了$shortcut$,深层结构的结果也没有浅层好…</p>
-<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
-<p>github上有人复现了模型，<a href="https://github.com/zonetrooper32/VDCNN" target="_blank" rel="noopener">代码</a></p>
-<p>抛开结果看的话，可以借鉴这种思路</p>
+<p>在实验中，作者测试了VGG网络，不加shortcut的深层网络和加shrotcut的深层网络，结果如图<br>
+<img src="/images/ResNet/exp_1.jpg" alt="exp_1"><br>
+<font color="#dd0000">可以看出plain网络虽然也有可比的结果，但也出现了退化现象。这种深层网络的优化困难与梯度消失和爆炸并不同，plain网络采用了BN，作者也验证了在前向和反向中没有梯度消失的迹象，梯度均为&quot;healthy norm&quot;。作者认为可能是深层的原因会有指数级的收敛率减低，但是持续迭代也不能解决退化问题。文中并没有给出难以优化的原因。</font></p>
+<p>作者也测试了三种shortcut的升维操作，分别是 A：zero-padding；B：相同维度不变，不同维度利用$1\times1$ conv; C：都使用$1\times1$ conv。上图中也给出了结果，可以看出C比B要好，这是因为多了13层的参数，但也不能解释“退化”现象。因此作者之后的实验均采用B的方法来减少复杂度并且控制模型大小。</p>
+<h2 id="bottleneck-结构"><a class="header-anchor" href="#bottleneck-结构">¶</a>Bottleneck 结构</h2>
+<p>作者在文中提出了bottleneck结构，如下图<br>
+<img src="/images/ResNet/bottleneck.jpg" alt="bottleneck"><br>
+这个结构的出发点是为了减少训练时间，第一个$1\times1$卷积是为了降维，第二个$1\times1$卷积是为了升维，这样中间的$3\timnes3$卷积会有更小的输入输出维度。图中左右两个结构有相同的时间复杂度。而之前介绍的方案B中的shortcut也是为了时间复杂度和模型大小考虑的，如果换成C，时间复杂度和模型大小都要翻倍。如果不考虑这些的话，可以使用C来得到更好的效果。<br>
+<font color="#dd0000">注意RELU是加在输出和shortcut相加之后。</font></p>
+<h2 id="探索-identity-mappings"><a class="header-anchor" href="#探索-identity-mappings">¶</a>探索 Identity Mappings</h2>
+<p>以上内容是第一篇论文，接下来这部分是Kaiming大神的第二篇论文，专门来讨论残差网络中应该使用哪种Identity Mapping。首先回顾下残差结构<br>
+<img src="/images/ResNet/residual_unit.jpg" alt="residual_unit"><br>
+其中$x_l$和$x_{l+1}$是第l个残差单元的输入和输出。$F$是残差函数。在第一篇论文中，identity mapping是$h(x_l)=x_l$，$f$为RELU函数。残差网络的关键就是使用了残差结构来为信息传递创造一个“直接”的通道。这篇文章对这个观点进行探索，得到一个重要的结论是<font color="#dd0000">如果$h(x_l$和$f(y_l)$都是 $identity$   $mapping$，那么信息可以在前向和后向中从任意一层传递到另一层。</font> 因此网络结构的设计要尽可能的满足以上结论。 $h(x_l)$可以直接等于$x_l$，而为了得到$f(y_l)=y_l$，作者提出了与原始的“post-activation”不同的“pre-activation”结构。原始结构与新的结构如下<br>
+<img src="/images/ResNet/model_ori_pro.jpg" alt="model_ori_pro"></p>
+<h3 id="identity-mappings-分析"><a class="header-anchor" href="#identity-mappings-分析">¶</a>Identity Mappings 分析</h3>
+<p>对于原始公式，如果让$h(x_l)=x_l$以及$f(y_l)=y_l$，那么有<br>
+<img src="/images/ResNet/ep_1.jpg" alt="ep_1"><br>
+从深层的$L$层展开到浅层$l$，得到<br>
+<img src="/images/ResNet/ep_2.jpg" alt="ep_2"><br>
+可以看到残差结构是一个“加法”模型，而普通的网络是一个“乘法”模型（忽略BN和RELU，从上一层到下一层是线性变换的惩罚操作）。将以上公式进行反向求导，用$\xi$表示loss，那么有<br>
+<img src="/images/ResNet/ep_3.jpg" alt="ep_3"><br>
+可以看到$x_L$的导数直接传递到了$l$层，并且括号中的一项基本不可能为0，因为在每个batch中每个样本对$x_l$的导数不会全是-1，因此这一层的梯度即使权重很小也不会消失。</p>
+<h3 id="skip-connection的实验"><a class="header-anchor" href="#skip-connection的实验">¶</a>Skip Connection的实验</h3>
+<p>论文中有关于skip connection进行scale之后的公式，可以看到很容易在深层中出现梯度消失和爆炸，因此ideneity才是最好的。论文做了队中结构的对比，如下图<br>
+<img src="/images/ResNet/skip_model.jpg" alt="skip_model"><br>
+<img src="/images/ResNet/skip_result.jpg" alt="skip_result"><br>
+虽然在模型中有下采样和升维的操作，但是这种操作的次数很少，因此可以近似的看作是identity mapping。</p>
+<h3 id="activation-实验"><a class="header-anchor" href="#activation-实验">¶</a>Activation 实验</h3>
+<p>作者在这一部分做了activation (RELU and/or BN)的实验。重点是提出“pre-activation”。在原来的结构中，$x_{l+1}=f(y_l)$影响了下一层残差结构中的全部两条path。<br>
+<img src="/images/ResNet/ep_4.jpg" alt="ep_4"><br>
+因此作者提出如下结构<br>
+<img src="/images/ResNet/ep_5.jpg" alt="ep_5"><br>
+具体的模型为<br>
+<img src="/images/ResNet/pre-activation.jpg" alt="pre-activation"><br>
+这些结构的对比为<br>
+<img src="/images/ResNet/activation.jpg" alt="activation"><br>
+“pre-activation”的好处如下：<br>
+1.优化更加容易。如果$f=RELU$,小于0的部分会被截断，如果层数很多的话会有很大的影响。并且恒等映射可以直接使梯度在任意两个残差结构中传递<br>
+2.减少过拟合。实验得到train loss会比原来的大而test loss会小，一定程度上泛化能力好</p>
+<h2 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h2>
+<p>谨记这个结构吧<br>
+<img src="/images/ResNet/model_ori_pro.jpg" alt="model_ori_pro"></p>
 
       
     </div>
@@ -458,8 +495,6 @@ $shortcut$的实验如下<br>
           
             <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
         </div>
       
 
@@ -471,8 +506,8 @@ $shortcut$的实验如下<br>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/21/SANCF/" rel="next" title="Self-Attentive Neural Collaborative Filtering">
-                <i class="fa fa-chevron-left"></i> Self-Attentive Neural Collaborative Filtering
+              <a href="/2018/09/01/DensenetAttentionTextClassify/" rel="next" title="Densely Connected CNN with Multi-scale Feature Attention for Text Classification">
+                <i class="fa fa-chevron-left"></i> Densely Connected CNN with Multi-scale Feature Attention for Text Classification
               </a>
             
           </div>
@@ -480,10 +515,6 @@ $shortcut$的实验如下<br>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/25/APR/" rel="prev" title="Adversarial Personalized Ranking for Recommendation">
-                Adversarial Personalized Ranking for Recommendation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +679,7 @@ $shortcut$的实验如下<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">2.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bottleneck-结构"><span class="nav-number">4.</span> <span class="nav-text">bottleneck-结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索-identity-mappings"><span class="nav-number">5.</span> <span class="nav-text">探索-identity-mappings</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#identity-mappings-分析"><span class="nav-number">5.1.</span> <span class="nav-text">identity-mappings-分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skip-connection的实验"><span class="nav-number">5.2.</span> <span class="nav-text">skip-connection的实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#activation-实验"><span class="nav-number">5.3.</span> <span class="nav-text">activation-实验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
