@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="recommendation," />
+  <meta name="keywords" content="deep learning,nlp," />
 
 
 
@@ -87,23 +87,27 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
-<meta name="keywords" content="recommendation">
+<meta name="description" content="这篇blog主要介绍利用Densenet和Attention来进行文本分类，论文标题《Densely Connected CNN with Multi-scale Feature Attention for Text Classification》，发表在2018年IJCAI上。">
+<meta name="keywords" content="deep learning,nlp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Self-Attentive Neural Collaborative Filtering">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/SANCF/index.html">
+<meta property="og:title" content="Densely Connected CNN with Multi-scale Feature Attention for Text Classification">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/DensenetAttentionTextClassify/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
+<meta property="og:description" content="这篇blog主要介绍利用Densenet和Attention来进行文本分类，论文标题《Densely Connected CNN with Multi-scale Feature Attention for Text Classification》，发表在2018年IJCAI上。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/SANCF/model.JPG">
-<meta property="og:image" content="http://yoursite.com/images/SANCF/self_attention_representation.JPG">
-<meta property="og:image" content="http://yoursite.com/images/SANCF/self_attention_output.JPG">
-<meta property="og:image" content="http://yoursite.com/images/SANCF/output.JPG">
-<meta property="og:updated_time" content="2018-07-21T09:39:03.915Z">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/example.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/model.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/resnet.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/densenet.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/densenet_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/filter_ensemble.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/scale_reweight.jpg">
+<meta property="og:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/exp.jpg">
+<meta property="og:updated_time" content="2018-09-01T06:02:49.794Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Self-Attentive Neural Collaborative Filtering">
-<meta name="twitter:description" content="这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《Self-Attentive Neural Collaborative Filtering》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。">
-<meta name="twitter:image" content="http://yoursite.com/images/SANCF/model.JPG">
+<meta name="twitter:title" content="Densely Connected CNN with Multi-scale Feature Attention for Text Classification">
+<meta name="twitter:description" content="这篇blog主要介绍利用Densenet和Attention来进行文本分类，论文标题《Densely Connected CNN with Multi-scale Feature Attention for Text Classification》，发表在2018年IJCAI上。">
+<meta name="twitter:image" content="http://yoursite.com/images/DensenetAttentionTextClassify/example.jpg">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/21/SANCF/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/01/DensenetAttentionTextClassify/"/>
 
 
 
 
 
-  <title> Self-Attentive Neural Collaborative Filtering | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Densely Connected CNN with Multi-scale Feature Attention for Text Classification | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -276,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/SANCF/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/DensenetAttentionTextClassify/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -297,7 +301,7 @@
             
             
               
-                Self-Attentive Neural Collaborative Filtering
+                Densely Connected CNN with Multi-scale Feature Attention for Text Classification
               
             
           </h1>
@@ -312,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T16:29:40+08:00">
-                2018-07-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-01T10:35:31+08:00">
+                2018-09-01
               </time>
             
 
@@ -335,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/推荐算法/" itemprop="url" rel="index">
-                    <span itemprop="name">推荐算法</span>
+                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习NLP</span>
                   </a>
                 </span>
 
@@ -365,7 +369,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  110 字
+                  575 字
                 </span>
               
 
@@ -381,7 +385,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -400,19 +404,30 @@
       
 
       
-        <p>这篇blog主要介绍Self-Attentive Neural Collaborative Filtering，论文标题《<a href="https://arxiv.org/abs/1806.06446" target="_blank" rel="noopener">Self-Attentive Neural Collaborative Filtering</a>》，目前代码发现了bug，已经withdraw，不过学习下论文里的attention方法。</p>
+        <p>这篇blog主要介绍利用Densenet和Attention来进行文本分类，论文标题《<a href="http://coai.cs.tsinghua.edu.cn/hml/media/files/2018wangshiyao_DenselyCNN.pdf" target="_blank" rel="noopener">Densely Connected CNN with Multi-scale Feature Attention for Text Classification</a>》，发表在2018年IJCAI上。</p>
 <a id="more"></a>
-<p>论文整体结构如下</p>
-<p><img src="/images/SANCF/model.JPG" alt="model"></p>
-<p>$Self-Attention Matrix$通过隐藏层之间的输出来计算<br>
-$S_{ij}=h_i^Th_j$<br>
-得到$S \in R^{l \times l}$的矩阵，当$i=j$时，$S_{ij}=0$<br>
-之后第$i$层的$Self-Attentive Representation$为</p>
-<p><img src="/images/SANCF/self_attention_representation.JPG" alt="self_attention_representation"></p>
-<p>$Self-attention$输出为</p>
-<p><img src="/images/SANCF/self_attention_output.JPG" alt="self_attention_output"></p>
-<p>最终的输出为</p>
-<p><img src="/images/SANCF/output.JPG" alt="output"></p>
+<p>文本分类是一个经典的问题了，在已有的文本分类中，随着层数的增加，n-gram特征的维度也在增加，但是关注的n-gram的size是固定的。这有很大的弊端，如下图<br>
+<img src="/images/DensenetAttentionTextClassify/example.jpg" alt="example"><br>
+可以看出positive是与$nice$和$without$ $being$ $patronizing$ 有关的。但是fixed-size的n-gram并不能两者兼顾，因此需要adaptive n-gram，这样选择的多尺度的特征更有利于文本分类。</p>
+<p>一种直观的做法是设计不同的卷积核，但是这个需要付出很多的人力，并且相当于对网络进行了加宽，也可以看作多个不同的网络进行并行。因此作者提出利用深层网络而不采取前面的方法，这是由于深层网络随着层数的增多可以生成多尺度的特征，浅层的n-gram较小，深层会不断的增大。作者提出利用densenet的结构和attention来进行选择的模型，模型如下<br>
+<img src="/images/DensenetAttentionTextClassify/model.jpg" alt="model"><br>
+模型的上半部分是densenet机构，下半部分是attention机制。</p>
+<h2 id="densenet"><a class="header-anchor" href="#densenet">¶</a>DenseNet</h2>
+<p>这里简要的介绍一下<a href="https://arxiv.org/abs/1608.06993" target="_blank" rel="noopener">DenseNet</a>。 我觉得原论文中解释的非常清楚，下面两个公式很好的说明了ResNet和DenseNet的区别<br>
+<img src="/images/DensenetAttentionTextClassify/resnet.jpg" alt="resnet"><br>
+<img src="/images/DensenetAttentionTextClassify/densenet.jpg" alt="densenet"><br>
+ResNet是当前层的输入和当前层的输出进行相加作为下一层的输入，而DenseNet则是之前曾的输出和当前层的输出进行concat来作为下一层的输入。为了能够加入pooling，作者提出了每个block中进行densenet的结构操作，如下图<br>
+<img src="/images/DensenetAttentionTextClassify/densenet_2.jpg" alt="densenet_2"><br>
+$H()$ 为 $BN-RELU-CONV$， pooling采用了 $1\times 1conv-2\times2 average pooling$。因为每一层都与之前层相关，所以每次卷积的filter number可以很小。如果网络很深的话每个block中作者将$H()$设置为Resnet的bottleneck结构。</p>
+<h2 id="多尺度attention"><a class="header-anchor" href="#多尺度attention">¶</a>多尺度attention</h2>
+<p>首先进行 filter ensemble，也就是每一层的输出对sequence中的每个位置把filter的特征相加<br>
+<img src="/images/DensenetAttentionTextClassify/filter_ensemble.jpg" alt="filter_ensemble"><br>
+<img src="/images/DensenetAttentionTextClassify/scale_reweight.jpg" alt="scale_reweight"><br>
+attention没有特别的设计，这里不再赘述了。</p>
+<h2 id="实验"><a class="header-anchor" href="#实验">¶</a>实验</h2>
+<p>实验结果如下<br>
+<img src="/images/DensenetAttentionTextClassify/exp.jpg" alt="exp"><br>
+效果不错，文章整体思路也是可以学习的。</p>
 
       
     </div>
@@ -442,7 +457,9 @@ $S_{ij}=h_i^Th_j$<br>
       
         <div class="post-tags">
           
-            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+            <a href="/tags/nlp/" rel="tag"># nlp</a>
           
         </div>
       
@@ -455,8 +472,8 @@ $S_{ij}=h_i^Th_j$<br>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/21/TCN/" rel="next" title="Temporal Convolutional Network">
-                <i class="fa fa-chevron-left"></i> Temporal Convolutional Network
+              <a href="/2018/09/01/GLU/" rel="next" title="Language Modeling with Gated Convolutional Networks">
+                <i class="fa fa-chevron-left"></i> Language Modeling with Gated Convolutional Networks
               </a>
             
           </div>
@@ -464,10 +481,6 @@ $S_{ij}=h_i^Th_j$<br>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/25/VDCNN/" rel="prev" title="Very Deep Convolutional Networks for Text Classification">
-                Very Deep Convolutional Networks for Text Classification <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,8 +563,17 @@ $S_{ij}=h_i^Th_j$<br>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -613,6 +635,22 @@ $S_{ij}=h_i^Th_j$<br>
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#densenet"><span class="nav-number">1.</span> <span class="nav-text">densenet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多尺度attention"><span class="nav-number">2.</span> <span class="nav-text">多尺度attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
