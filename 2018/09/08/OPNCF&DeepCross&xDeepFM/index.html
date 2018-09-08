@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="deep learning,recommendation," />
 
 
 
@@ -87,21 +87,28 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
-<meta name="keywords" content="NLP">
+<meta name="description" content="本文主要介绍三篇文章，分别是《Outer Product-based Neural Collaborative Filtering》，《Deep &amp;amp; Cross Network for Ad Click Predictions》，《xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Sy">
+<meta name="keywords" content="deep learning,recommendation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Temporal Convolutional Network">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/TCN/index.html">
+<meta property="og:title" content="OPNCF&amp;DeepCross&amp;xDeepFM">
+<meta property="og:url" content="http://yoursite.com/2018/09/08/OPNCF&DeepCross&xDeepFM/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
+<meta property="og:description" content="本文主要介绍三篇文章，分别是《Outer Product-based Neural Collaborative Filtering》，《Deep &amp;amp; Cross Network for Ad Click Predictions》，《xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Sy">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/TCN/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/TCN/experiment.jpg">
-<meta property="og:updated_time" content="2018-07-21T07:56:35.426Z">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/OPNCF_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/OPNCF_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/OPNCF_3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/deepcross_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/deepcross_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/cin_1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/cin_2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/xDeepFM.jpg">
+<meta property="og:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/xDeepFM_res.jpg">
+<meta property="og:updated_time" content="2018-09-08T04:03:39.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Temporal Convolutional Network">
-<meta name="twitter:description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
-<meta name="twitter:image" content="http://yoursite.com/images/TCN/model.jpg">
+<meta name="twitter:title" content="OPNCF&amp;DeepCross&amp;xDeepFM">
+<meta name="twitter:description" content="本文主要介绍三篇文章，分别是《Outer Product-based Neural Collaborative Filtering》，《Deep &amp;amp; Cross Network for Ad Click Predictions》，《xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Sy">
+<meta name="twitter:image" content="http://yoursite.com/images/OPNCF&DeepCross&xDeepFM/OPNCF_1.jpg">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/21/TCN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/08/OPNCF&DeepCross&xDeepFM/"/>
 
 
 
 
 
-  <title> Temporal Convolutional Network | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> OPNCF&DeepCross&xDeepFM | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -274,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/TCN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/08/OPNCF&DeepCross&xDeepFM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -295,7 +302,7 @@
             
             
               
-                Temporal Convolutional Network
+                OPNCF&DeepCross&xDeepFM
               
             
           </h1>
@@ -310,8 +317,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T15:25:22+08:00">
-                2018-07-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T10:46:46+08:00">
+                2018-09-08
               </time>
             
 
@@ -333,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习NLP</span>
+                  <a href="/categories/深度学习推荐算法/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习推荐算法</span>
                   </a>
                 </span>
 
@@ -363,7 +370,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  496 字
+                  697 字
                 </span>
               
 
@@ -379,7 +386,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  2 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -398,26 +405,32 @@
       
 
       
-        <p>这篇blog主要介绍Temporal Convolutional Network，论文标题《<a href="https://arxiv.org/abs/1709.10380v1" target="_blank" rel="noopener">An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling</a>》</p>
+        <p>本文主要介绍三篇文章，分别是《<a href="https://www.researchgate.net/publication/326202547_Outer_Product-based_Neural_Collaborative_Filtering" target="_blank" rel="noopener">Outer Product-based Neural Collaborative Filtering</a>》，《<a href="http://cn.arxiv.org/pdf/1708.05123" target="_blank" rel="noopener">Deep &amp; Cross Network for Ad Click Predictions</a>》，《<a href="http://cn.arxiv.org/pdf/1803.05170" target="_blank" rel="noopener">xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems</a>》。分别发表在IJCAI’2018, KDD’2017 workshop, KDD’2018。 这三篇paper都只是研究高阶的特征交互(feature interaction)方法.</p>
 <a id="more"></a>
-<p>这篇论文针对sequence建模，提出利用&quot;时空卷积网络(TCN)&quot;，并且在实验中表明TCN比LSTM和GRU效果更好。TCN主要利用了空洞卷积，模型如下。</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p><img src="/images/TCN/model.jpg" alt="model"></p>
-<p>需要注意的是，在进行空洞卷积之前，必须要在sequence“之前”进行padding。因为时空卷积的很重要的一点是当前位置的特征只能由当前位置之前的特征进行卷积得到，并且输出的sequence要与输入前的sequence等长。同时为了是梯度能更好的传播，TCN也使用了残差结构。为了加速训练，也使用了weightnorm这种技术。</p>
-<h2 id="讨论"><a class="header-anchor" href="#讨论">¶</a>讨论</h2>
-<p>TCN有如下好处：<br>
-1.相比于RNN最后的输出要依赖之前的输出，CNN能够更好的并行，sequence能够整体输入到TCN中，不需要像RNN一样的循环输入。<br>
-2.灵活的感受野。通过改变dilation rate或者堆积更多的层，TCN能够得到不同的感受野。<br>
-3.相比与RNN中的梯度问题，TCN因为使用残差结构能够有稳定的梯度<br>
-4.LSTM和GRU都需要占用很大的内存来存储部分结果，而TCN因为卷积的参数共享，在训练中对于内存的要求更少。<br>
-5.TCN也可以像RNN一样处理变长的序列。</p>
-<p>TCN也有如下缺点：<br>
-1.在测试时，RNN只需要保存一个隐藏层的数据，而TCN需要保存所有的原始序列，因此在测试时需要更多的内存。<br>
-2.不同的问题对于history的要求不同，当两个domain的k和d不同时，模型的迁移会很难，因为TCN在小的感受野上得到的模型在大的感受野设置下效果很差。</p>
-<h2 id="实验结果"><a class="header-anchor" href="#实验结果">¶</a>实验结果</h2>
-<p>在各种sequence任务上TCN效果不错，如下<br>
-<img src="/images/TCN/experiment.jpg" alt="experiment"><br>
-<a href="https://github.com/Songweiping/TCN-TF" target="_blank" rel="noopener">TCN实现</a></p>
+<h2 id="opncf"><a class="header-anchor" href="#opncf">¶</a>OPNCF</h2>
+<p>在MF中，很多方法对于user和item的embedding都是用简单的内积进行计算。而进行内积操作的前提是各个维度上的特征都是独立的，但是这个假设并不是十分正确，因为item的embedding上的每一维可以看作是对于itme的某一种描述。一种改进是使用多层感知机(MLP)，虽然MLP在理论上可以进行各个维度的融合，但是在实际应用应用中并不能保证各个维度的交互能够在当前的优化下很好的得到。因此，这篇文章提出使用外积加卷积的方法来进行feature interaction。外积的方法可以保证各个维度的特征交互，而卷积可以更好的提取特征。<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/OPNCF_1.jpg" alt="OPNCF_1"><br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/OPNCF_2.jpg" alt="OPNCF_2"><br>
+实验结果如下，<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/OPNCF_3.jpg" alt="OPNCF_3"></p>
+<h2 id="deepcross"><a class="header-anchor" href="#deepcross">¶</a>DeepCross</h2>
+<p>这篇文章的出发点也是MLP并不能保证有很好的高阶特征融合结果，它的主要贡献是提出了一种新的显式特征交互的方法，并且随着层数的增加，highest polynomial degree也不断增加，但是计算量很小。具体的，网络的整体结构如下<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/deepcross_1.jpg" alt="deepcross_1"><br>
+每层的crossnet的公式如下<br>
+$x_{l+1} = x_0x_l^Tw_l + b_l + x_l$<br>
+可视化如下<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/deepcross_2.jpg" alt="deepcross_2"><br>
+理论分析和实验结果不再赘述</p>
+<h2 id="xdeepfm"><a class="header-anchor" href="#xdeepfm">¶</a>xDeepFM</h2>
+<p>xDeepFM是对DeepCross的改进，也是不加入人工来显示的学习高阶特征融合。首先，论文阐述了DeepCross是一种固定的特征融合方法，也就是第k层的输出$x_k$是一个标量乘以$x_0$，这一点可以从DeepCross的公式中推出。这种个固定的输出是DeepCross的缺陷，并且它也是bit-wise的，不是vector-wise，即只考虑每个embedding中的每一维，没有考虑embedding整体。需要注意的是虽然DeepCross的输出形式是一个标量乘以原始输入，但这并不代表输出和输入是线性关系，因为scala这个系数也是和$x_0$相关的。<br>
+作者提出Compressed Interaction Network(CIN)，每一层的输出如下<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/cin_1.jpg" alt="cin_1"><br>
+其中$X_0 \in R^{m\times D}$，其中D是embedding的维度，m是field的个数，$X_k\in R^{H_k\times D}$, $H_0 = m$, $W^{k,h} \in R^{H_{k-1}\times D}$, $\langle a_1,a_2,a_3\rangle \circ \langle b_1,b_2,b_3\rangle = \langle a_1b_1, a_2b_2, a_3b_3 \rangle$。看起来很复杂，但是作者给出了一种利用卷积来操作的方法，如下图<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/cin_2.jpg" alt="cin_2"><br>
+网络整体结构如下，由线性部分，CIN和DNN组成<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/xDeepFM.jpg" alt="xDeepFM"><br>
+实验结果如下<br>
+<img src="/images/OPNCF&amp;DeepCross&amp;xDeepFM/xDeepFM_res.jpg" alt="xDeepFM_res"></p>
 
       
     </div>
@@ -447,7 +460,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+            <a href="/tags/recommendation/" rel="tag"># recommendation</a>
           
         </div>
       
@@ -460,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/21/Dynamic CNN/" rel="next" title="Dynamic CNN for Modelling Sentences">
-                <i class="fa fa-chevron-left"></i> Dynamic CNN for Modelling Sentences
+              <a href="/2018/09/01/ResNet/" rel="next" title="ResNet">
+                <i class="fa fa-chevron-left"></i> ResNet
               </a>
             
           </div>
@@ -469,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/21/SANCF/" rel="prev" title="Self-Attentive Neural Collaborative Filtering">
-                Self-Attentive Neural Collaborative Filtering <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -637,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讨论"><span class="nav-number">2.</span> <span class="nav-text">讨论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验结果"><span class="nav-number">3.</span> <span class="nav-text">实验结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#opncf"><span class="nav-number">1.</span> <span class="nav-text">opncf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepcross"><span class="nav-number">2.</span> <span class="nav-text">deepcross</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xdeepfm"><span class="nav-number">3.</span> <span class="nav-text">xdeepfm</span></a></li></ol></div>
             
 
           </div>
