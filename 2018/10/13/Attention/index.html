@@ -1,0 +1,898 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CH">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="deep learning,NLP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
+<meta name="keywords" content="deep learning,NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Attention">
+<meta property="og:url" content="http://yoursite.com/2018/10/13/Attention/index.html">
+<meta property="og:site_name" content="Howieee&#39;s Blog">
+<meta property="og:description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
+<meta property="og:locale" content="zh-CH">
+<meta property="og:image" content="http://yoursite.com/images/Attention/encoder-decoder.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-3.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/global-local.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-5.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/global.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-6.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-7.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-8.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/local.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-9.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/self-seq2seq.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/hierarchical-attention.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-10.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/eq-11.jpg">
+<meta property="og:image" content="http://yoursite.com/images/Attention/atten.jpg">
+<meta property="og:updated_time" content="2018-10-13T09:27:26.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Attention">
+<meta name="twitter:description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
+<meta name="twitter:image" content="http://yoursite.com/images/Attention/encoder-decoder.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/13/Attention/"/>
+
+
+
+
+
+  <title> Attention | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Howieee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/Attention/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howieee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howieee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Attention
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-13T15:40:33+08:00">
+                2018-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  965 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇blog主要总结attention机制，主要是《<a href="http://cn.arxiv.org/abs/1808.09772" target="_blank" rel="noopener">Notes on Deep Learning for NLP</a>》的第7部分以及发表在2017年NIPS上的《<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need</a>》。本文不讨论hard aattention。</p>
+<a id="more"></a>
+<p>Attention机制最初出现在机器翻译中，后来很快的应用在image captioning和summarization中。 Attention提供了encoder将输入向量转化为单一向量的一种方法，使之保留更多的信息，并且使得decoder只关注重要的部分。除此之外，现在还有只针对encoder的attention方法，比如self attention，这种机制被广泛应用在文本分类和表示学习中。</p>
+<h2 id="encoder-decoder-attention"><a class="header-anchor" href="#encoder-decoder-attention">¶</a>Encoder-Decoder attention</h2>
+<p>下图是一个encoder-decoder框架，是一个典型的sequence to sequence结构。 输入为$x=(x_1, x_2, … x_{T_x})$, 输出为$y=(y_1, y_2, … y_{T_y})$。 $x$和$y$通常也被称为source sentence和target sentence。<br>
+<img src="/images/Attention/encoder-decoder.jpg" alt="encoder-decoder"><br>
+通过计算最大似然估计，可以得到损失函数，然后通过端对端的训练得到最优参数<br>
+<img src="/images/Attention/eq-1.jpg" alt="eq-1"></p>
+<h3 id="encoder"><a class="header-anchor" href="#encoder">¶</a>Encoder</h3>
+<p>encoder部分可以是任意的模型，比如CNN, RNN, 双向RNN或者NN。通过encoder，可以得到一系列的中间向量，在每个时刻t，我们用$h_t$表示，所有的中间向量为$(h_1, h_2, … , h_{T_x})$</p>
+<h3 id="decoder"><a class="header-anchor" href="#decoder">¶</a>Decoder</h3>
+<p>decoder部分通常是一个RNN，因为需要在每个时刻有一个输出。目标输出为$y=(y_1, y_2, … y_{T_y})$，在每个时刻的词分布为<br>
+<img src="/images/Attention/eq-2.jpg" alt="eq-2"><br>
+其中$\tilde{h_t}$为$attentional$ hidden state, 通过下式计算<br>
+<img src="/images/Attention/eq-3.jpg" alt="eq-3"><br>
+$h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根据计算方式的不同分为$gloablly$和$locally$,如下图。$;$是concat操作。<br>
+<img src="/images/Attention/global-local.jpg" alt="global-local"></p>
+<h4 id="global-attention"><a class="header-anchor" href="#global-attention">¶</a>Global attention</h4>
+<p>在global attention中，$c_t$的计算如下，注意此时encoder的输出用$\bar{h}$表示<br>
+<img src="/images/Attention/eq-4.jpg" alt="eq-4"><br>
+<img src="/images/Attention/eq-5.jpg" alt="eq-5"><br>
+由以上可以看出，$c_t$主要由decoder的$h_t$和encoder的所有中间向量计算得到。score的计算通常有三种，分别是$h_{t}^{T}\bar{h_i}$, $h_{t}^{T}W_a\bar{h_i}$或者用NN。整体模型如下<br>
+<img src="/images/Attention/global.jpg" alt="global"></p>
+<h4 id="local-attention"><a class="header-anchor" href="#local-attention">¶</a>Local attention</h4>
+<p>local attention与global attention整体上相似，只不过对于$c_t$的计算设定了一个范围。具体的计算如下<br>
+<img src="/images/Attention/eq-6.jpg" alt="eq-6"><br>
+<img src="/images/Attention/eq-7.jpg" alt="eq-7"><br>
+<img src="/images/Attention/eq-8.jpg" alt="eq-8"><br>
+其中$p_t$是窗口中心，可以人为设置或者通过模型来学习，$T_x$是source sentence的长度。最后一个公式在softmax中加入了一个高斯项，主要是为了使得距离随着与$p_t$的增加权重变小，也就是更加凸显中间部分的重要性。整体模型如下图<br>
+<img src="/images/Attention/local.jpg" alt="local"></p>
+<h2 id="self-attention"><a class="header-anchor" href="#self-attention">¶</a>Self attention</h2>
+<p>与直接使用encoder的最后一个输出作为序列的表示相比，self attention利用所有时刻的输出来计算一个新的表示。具体如下，$u$是一个$trainable context vector$<br>
+<img src="/images/Attention/eq-9.jpg" alt="eq-9"></p>
+<h3 id="与seq2seq-attention的不同点"><a class="header-anchor" href="#与seq2seq-attention的不同点">¶</a>与seq2seq attention的不同点</h3>
+<p>self attention中的context vector$c_t$与seq2seq attention中并不相同。在seq2seq attention中，$c_t$经过attention求和之后的结果，然后和decoder的向量concat进行计算，而在self attention中，$c_t$也就是$v$,是一个参数，用来计算attention的系数，这个系数表示每个中间向量与这个全局向量的一个相似度。而在seq2seq attention中，这个系数表示source中的每个vector与生成的下一个vector的相似度。<br>
+<img src="/images/Attention/self-seq2seq.jpg" alt="self-seq2seq"></p>
+<h3 id="hierarchical-attention"><a class="header-anchor" href="#hierarchical-attention">¶</a>Hierarchical attention</h3>
+<p>简单的来说hierarchical attention就是由word生成sentence时加入一个attetntion模块，在sentence生成document时加入一个attention，通过这样的分层计算来进行文章分类。整体如下<br>
+<img src="/images/Attention/hierarchical-attention.jpg" alt="hierarchical-attention"></p>
+<h2 id="attention-is-all-you-need"><a class="header-anchor" href="#attention-is-all-you-need">¶</a>Attention Is All You Need</h2>
+<p>Google的这篇文章提出只用attention来做机器翻译，抛弃了CNN和RNN结构。总的来说，attention层利用三个输入，分别是query，key和value来计算，公式如下<br>
+<img src="/images/Attention/eq-10.jpg" alt="eq-10"><br>
+其中$\sqrt{d}$是输入的长度，为了防止内积过大。在论文中query，key和value都使用相同的输入$x$。将这个结构进行融合，提出了multi-head attention，也就是将输入先经过一个线性变换，然后进行多次attention操作，然后再concat，具体如下<br>
+<img src="/images/Attention/eq-11.jpg" alt="eq-11"><br>
+整体attention的模型为<br>
+<img src="/images/Attention/atten.jpg" alt="atten"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/02/RCNN/" rel="next" title="Recurrent CNN">
+                <i class="fa fa-chevron-left"></i> Recurrent CNN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+        <div id="container" style="display:none"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        const myTheme = {
+          render(state, instance) {
+            const container = document.createElement('div');
+            container.lang = "en-US";
+            container.className = 'gitment-container gitment-root-container';
+            container.appendChild(instance.renderHeader(state, instance));
+            container.appendChild(instance.renderEditor(state, instance));
+            container.appendChild(instance.renderComments(state, instance));
+            container.appendChild(instance.renderFooter(state, instance));
+            return container;
+          }
+        }
+        function showGitment() {
+          $("#gitment_title").attr("style", "display:none");
+          $("#container").attr("style", "").addClass("gitment_container");
+          var gitment = new Gitment({
+            id: window.location.pathname,
+            theme: myTheme,
+            owner: 'howieeeeeeee',
+            repo: 'howieeeeeeee.github.io',
+            oauth: {
+              client_id: '5eca9f26990a586072fe',
+              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
+            }
+          });
+          gitment.render('container');
+        }
+        </script>
+      
+
+  </div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/blog-logo.jpg"
+               alt="Howieee" />
+          <p class="site-author-name" itemprop="name">Howieee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#encoder-decoder-attention"><span class="nav-number">1.</span> <span class="nav-text">encoder-decoder-attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encoder"><span class="nav-number">1.1.</span> <span class="nav-text">encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decoder"><span class="nav-number">1.2.</span> <span class="nav-text">decoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-attention"><span class="nav-number">1.2.1.</span> <span class="nav-text">global-attention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-attention"><span class="nav-number">1.2.2.</span> <span class="nav-text">local-attention</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-attention"><span class="nav-number">2.</span> <span class="nav-text">self-attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与seq2seq-attention的不同点"><span class="nav-number">2.1.</span> <span class="nav-text">与seq2seq-attention的不同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchical-attention"><span class="nav-number">2.2.</span> <span class="nav-text">hierarchical-attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#attention-is-all-you-need"><span class="nav-number">3.</span> <span class="nav-text">attention-is-all-you-need</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Howieee</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+</body>
+</html>
