@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deep learning,NLP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,24 +87,13 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Gated Linear Unit，论文标题《Language Modeling with Gated Convolutional Networks》，发表在2017年ICML上。">
-<meta name="keywords" content="deep learning,NLP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Language Modeling with Gated Convolutional Networks">
-<meta property="og:url" content="http://yoursite.com/2018/09/01/GLU/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Howieee&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Gated Linear Unit，论文标题《Language Modeling with Gated Convolutional Networks》，发表在2017年ICML上。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/GLU/ep_1.jpg">
-<meta property="og:image" content="http://yoursite.com/images/GLU/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/GLU/ep_2.jpg">
-<meta property="og:image" content="http://yoursite.com/images/GLU/ep_3.jpg">
-<meta property="og:image" content="http://yoursite.com/images/GLU/ep_4.jpg">
-<meta property="og:updated_time" content="2018-09-01T02:26:49.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Language Modeling with Gated Convolutional Networks">
-<meta name="twitter:description" content="这篇blog主要介绍Gated Linear Unit，论文标题《Language Modeling with Gated Convolutional Networks》，发表在2017年ICML上。">
-<meta name="twitter:image" content="http://yoursite.com/images/GLU/ep_1.jpg">
+<meta name="twitter:title" content="Howieee&#39;s Blog">
 
 
 
@@ -132,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/01/GLU/"/>
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
 
 
 
 
-  <title> Language Modeling with Gated Convolutional Networks | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -163,7 +152,9 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,9 +257,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -277,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/01/GLU/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/27/SeqGAN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -298,7 +289,10 @@
             
             
               
-                Language Modeling with Gated Convolutional Networks
+                
+                <a class="post-title-link" href="/2018/04/27/SeqGAN/" itemprop="url">
+                  SeqGAN
+                </a>
               
             
           </h1>
@@ -313,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-01T09:31:59+08:00">
-                2018-09-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T16:11:34+08:00">
+                2018-04-27
               </time>
             
 
@@ -336,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习NLP</span>
+                  <a href="/categories/深度学习GAN/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习GAN</span>
                   </a>
                 </span>
 
@@ -366,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  533 字
+                  650 字
                 </span>
               
 
@@ -401,95 +395,231 @@
       
 
       
-        <p>这篇blog主要介绍Gated Linear Unit，论文标题《<a href="https://arxiv.org/abs/1612.08083v1" target="_blank" rel="noopener">Language Modeling with Gated Convolutional Networks</a>》，发表在2017年ICML上。</p>
-<a id="more"></a>
-<p>这篇文章主要提出了一种新的模型来进行语言建模。卷积神经网络可以通过叠加层数来达到抽取分层次特征的目的，对于long term dependency，CNN可以通过kernel size 为k的卷积操作$O(n/k)$来完成，而LSTM则要$O(n)$，其中n为句子长度。作者在已有cnn的基础上引入门控机制，主要的公式如下：</p>
-<p><img src="/images/GLU/ep_1.jpg" alt="ep_1"></p>
-<p>在论文中，作者在每次卷积前都要进行padding，这样是为了防止对当前单词建模时会利用到“future”的单词。也就是当kernel size 为k时，在sequence之前补k-1个0。将GLU层进行叠加，模型如下<br>
-<img src="/images/GLU/model.jpg" alt="model"><br>
-在模型中，作者加入了resnet的shortcut结构，在损失函数上选择了hierarchical softmax的改进版本adaptive softmax，训练时也加入了gradient clipping。</p>
-<h2 id="分析"><a class="header-anchor" href="#分析">¶</a>分析</h2>
-<p>LSTM为了有长期的记忆，需要引入 输入门 和 遗忘门，这样就可以使信息在很多timestamps中进行传递。但是在CNN结构中并不存在这样的梯度消失问题（sequence中的word每次都一起卷积），因此在模型中作者去除了输入门和遗忘门，只留下了输出门来控制哪部分信息传递到下一层。门控机制是有效的，因为它可以控制选择哪部分word或者feature来对下一个word进行预测。 [Oord, Aaron van den, Kalchbrenner, Nal, Vinyals, Oriol, Espeholt, Lasse, Graves, Alex, and Kavukcuoglu, Koray. Conditional image generation with pixelcnn decoders]提出了另一种门控机制，称之为GTU(Gated Tanh Unit)<br>
-<img src="/images/GLU/ep_2.jpg" alt="ep_2"><br>
-比较两种门控机制，计算它们的梯度<br>
-<img src="/images/GLU/ep_3.jpg" alt="ep_3"></p>
-<p><img src="/images/GLU/ep_4.jpg" alt="ep_4"><br>
-可以看出GTU的梯度衰减是因为$tanh’(X)$和$\sigma’(X)$，而GLU中没有$tanh’(X)$，因为可以更快收敛，后面的实验也进行了对比。</p>
-<h2 id="训练"><a class="header-anchor" href="#训练">¶</a>训练</h2>
-<p>实验结果就不贴图了，实验中GLU效果很好收敛也快。作者也对比了GLU与深层的线性模型，实验结果时GLU好，并且同时加入weight normalization和gradient clipping</p>
-
+        
+          <p>本文主要介绍AAAI 2017的论文<a href="https://arxiv.org/abs/1609.05473.pdf" target="_blank" rel="noopener">SeqGAN:Sequence Generative Adversarial Nets with Policy Gradient</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/SeqGAN/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
+
       
 
       
-        
-      
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/08/25/APR/" rel="next" title="Adversarial Personalized Ranking for Recommendation">
-                <i class="fa fa-chevron-left"></i> Adversarial Personalized Ranking for Recommendation
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/01/DensenetAttentionTextClassify/" rel="prev" title="Densely Connected CNN with Multi-scale Feature Attention for Text Classification">
-                Densely Connected CNN with Multi-scale Feature Attention for Text Classification <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+      
 
-    <div class="post-spread">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/IRGAN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howieee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howieee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/24/IRGAN/" itemprop="url">
+                  IRGAN
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T11:10:24+08:00">
+                2018-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习推荐算法/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习推荐算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article</span>
+                
+                <span title="Words count in article">
+                  879 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time</span>
+                
+                <span title="Reading time">
+                  3 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文主要介绍SIGIR2017的论文<a href="https://arxiv.org/pdf/1705.10513.pdf" target="_blank" rel="noopener">IRGAN: A Minimax Game for Unifying Generative and Discriminative Information Retrieval Models</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/24/IRGAN/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
-  </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -497,45 +627,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-        <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
-        <div id="container" style="display:none"></div>
-        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-        <script>
-        const myTheme = {
-          render(state, instance) {
-            const container = document.createElement('div');
-            container.lang = "en-US";
-            container.className = 'gitment-container gitment-root-container';
-            container.appendChild(instance.renderHeader(state, instance));
-            container.appendChild(instance.renderEditor(state, instance));
-            container.appendChild(instance.renderComments(state, instance));
-            container.appendChild(instance.renderFooter(state, instance));
-            return container;
-          }
-        }
-        function showGitment() {
-          $("#gitment_title").attr("style", "display:none");
-          $("#container").attr("style", "").addClass("gitment_container");
-          var gitment = new Gitment({
-            id: window.location.pathname,
-            theme: myTheme,
-            owner: 'howieeeeeeee',
-            repo: 'howieeeeeeee.github.io',
-            oauth: {
-              client_id: '5eca9f26990a586072fe',
-              client_secret: '43a7279773802b80a6f6a7eda956b0afb31584b3'
-            }
-          });
-          gitment.render('container');
-        }
-        </script>
-      
-
-  </div>
-
 
 
         </div>
@@ -556,17 +647,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -628,22 +710,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.</span> <span class="nav-text">训练</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -758,10 +824,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
 
   
 

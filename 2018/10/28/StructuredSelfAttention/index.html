@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="deep learning,NLP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,37 +87,17 @@
 
 
 
-<meta name="description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
-<meta name="keywords" content="deep learning,NLP">
+<meta name="description" content="这篇blog主要介绍发表在ICLR 2017上的《A Structured Self-Attentive Sentence Embedding》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attention">
-<meta property="og:url" content="http://yoursite.com/2018/10/13/Attention/index.html">
+<meta property="og:title" content="A Structured Self-Attentive Sentence Embedding">
+<meta property="og:url" content="http://yoursite.com/2018/10/28/StructuredSelfAttention/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
+<meta property="og:description" content="这篇blog主要介绍发表在ICLR 2017上的《A Structured Self-Attentive Sentence Embedding》">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/Attention/encoder-decoder.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-1.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-2.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-3.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/global-local.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-4.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-5.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/global.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-6.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-7.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-8.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/local.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-9.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/self-seq2seq.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/hierarchical-attention.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-10.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/eq-11.jpg">
-<meta property="og:image" content="http://yoursite.com/images/Attention/atten.jpg">
-<meta property="og:updated_time" content="2018-10-13T09:27:26.081Z">
+<meta property="og:updated_time" content="2018-10-28T03:11:31.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Attention">
-<meta name="twitter:description" content="这篇blog主要总结attention机制，主要是《Notes on Deep Learning for NLP》的第7部分以及发表在2017年NIPS上的《Attention Is All You Need》。本文不讨论hard aattention。">
-<meta name="twitter:image" content="http://yoursite.com/images/Attention/encoder-decoder.jpg">
+<meta name="twitter:title" content="A Structured Self-Attentive Sentence Embedding">
+<meta name="twitter:description" content="这篇blog主要介绍发表在ICLR 2017上的《A Structured Self-Attentive Sentence Embedding》">
 
 
 
@@ -145,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/13/Attention/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/28/StructuredSelfAttention/"/>
 
 
 
 
 
-  <title> Attention | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> A Structured Self-Attentive Sentence Embedding | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -290,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/Attention/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/StructuredSelfAttention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -311,7 +291,7 @@
             
             
               
-                Attention
+                A Structured Self-Attentive Sentence Embedding
               
             
           </h1>
@@ -326,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-13T15:40:33+08:00">
-                2018-10-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-28T11:07:13+08:00">
+                2018-10-28
               </time>
             
 
@@ -379,7 +359,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  965 字
+                  30 字
                 </span>
               
 
@@ -395,7 +375,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  4 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -414,52 +394,9 @@
       
 
       
-        <p>这篇blog主要总结attention机制，主要是《<a href="http://cn.arxiv.org/abs/1808.09772" target="_blank" rel="noopener">Notes on Deep Learning for NLP</a>》的第7部分以及发表在2017年NIPS上的《<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need</a>》。本文不讨论hard aattention。</p>
+        <p>这篇blog主要介绍发表在ICLR 2017上的《<a href="https://arxiv.org/abs/1703.03130" target="_blank" rel="noopener">A Structured Self-Attentive Sentence Embedding</a>》</p>
 <a id="more"></a>
-<p>Attention机制最初出现在机器翻译中，后来很快的应用在image captioning和summarization中。 Attention提供了encoder将输入向量转化为单一向量的一种方法，使之保留更多的信息，并且使得decoder只关注重要的部分。除此之外，现在还有只针对encoder的attention方法，比如self attention，这种机制被广泛应用在文本分类和表示学习中。</p>
-<h2 id="encoder-decoder-attention"><a class="header-anchor" href="#encoder-decoder-attention">¶</a>Encoder-Decoder attention</h2>
-<p>下图是一个encoder-decoder框架，是一个典型的sequence to sequence结构。 输入为$x=(x_1, x_2, … x_{T_x})$, 输出为$y=(y_1, y_2, … y_{T_y})$。 $x$和$y$通常也被称为source sentence和target sentence。<br>
-<img src="/images/Attention/encoder-decoder.jpg" alt="encoder-decoder"><br>
-通过计算最大似然估计，可以得到损失函数，然后通过端对端的训练得到最优参数<br>
-<img src="/images/Attention/eq-1.jpg" alt="eq-1"></p>
-<h3 id="encoder"><a class="header-anchor" href="#encoder">¶</a>Encoder</h3>
-<p>encoder部分可以是任意的模型，比如CNN, RNN, 双向RNN或者NN。通过encoder，可以得到一系列的中间向量，在每个时刻t，我们用$h_t$表示，所有的中间向量为$(h_1, h_2, … , h_{T_x})$</p>
-<h3 id="decoder"><a class="header-anchor" href="#decoder">¶</a>Decoder</h3>
-<p>decoder部分通常是一个RNN，因为需要在每个时刻有一个输出。目标输出为$y=(y_1, y_2, … y_{T_y})$，在每个时刻的词分布为<br>
-<img src="/images/Attention/eq-2.jpg" alt="eq-2"><br>
-其中$\tilde{h_t}$为$attentional$ hidden state, 通过下式计算<br>
-<img src="/images/Attention/eq-3.jpg" alt="eq-3"><br>
-$h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根据计算方式的不同分为$gloablly$和$locally$,如下图。$;$是concat操作。<br>
-<img src="/images/Attention/global-local.jpg" alt="global-local"></p>
-<h4 id="global-attention"><a class="header-anchor" href="#global-attention">¶</a>Global attention</h4>
-<p>在global attention中，$c_t$的计算如下，注意此时encoder的输出用$\bar{h}$表示<br>
-<img src="/images/Attention/eq-4.jpg" alt="eq-4"><br>
-<img src="/images/Attention/eq-5.jpg" alt="eq-5"><br>
-由以上可以看出，$c_t$主要由decoder的$h_t$和encoder的所有中间向量计算得到。score的计算通常有三种，分别是$h_{t}^{T}\bar{h_i}$, $h_{t}^{T}W_a\bar{h_i}$或者用NN。整体模型如下<br>
-<img src="/images/Attention/global.jpg" alt="global"></p>
-<h4 id="local-attention"><a class="header-anchor" href="#local-attention">¶</a>Local attention</h4>
-<p>local attention与global attention整体上相似，只不过对于$c_t$的计算设定了一个范围。具体的计算如下<br>
-<img src="/images/Attention/eq-6.jpg" alt="eq-6"><br>
-<img src="/images/Attention/eq-7.jpg" alt="eq-7"><br>
-<img src="/images/Attention/eq-8.jpg" alt="eq-8"><br>
-其中$p_t$是窗口中心，可以人为设置或者通过模型来学习，$T_x$是source sentence的长度。最后一个公式在softmax中加入了一个高斯项，主要是为了使得距离随着与$p_t$的增加权重变小，也就是更加凸显中间部分的重要性。整体模型如下图<br>
-<img src="/images/Attention/local.jpg" alt="local"></p>
-<h2 id="self-attention"><a class="header-anchor" href="#self-attention">¶</a>Self attention</h2>
-<p>与直接使用encoder的最后一个输出作为序列的表示相比，self attention利用所有时刻的输出来计算一个新的表示。具体如下，$u$是一个$trainable context vector$<br>
-<img src="/images/Attention/eq-9.jpg" alt="eq-9"></p>
-<h3 id="与seq2seq-attention的不同点"><a class="header-anchor" href="#与seq2seq-attention的不同点">¶</a>与seq2seq attention的不同点</h3>
-<p>self attention中的context vector$c_t$与seq2seq attention中并不相同。在seq2seq attention中，$c_t$经过attention求和之后的结果，然后和decoder的向量concat进行计算，而在self attention中，$c_t$也就是$v$,是一个参数，用来计算attention的系数，这个系数表示每个中间向量与这个全局向量的一个相似度。而在seq2seq attention中，这个系数表示source中的每个vector与生成的下一个vector的相似度。<br>
-<img src="/images/Attention/self-seq2seq.jpg" alt="self-seq2seq"></p>
-<h3 id="hierarchical-attention"><a class="header-anchor" href="#hierarchical-attention">¶</a>Hierarchical attention</h3>
-<p>简单的来说hierarchical attention就是由word生成sentence时加入一个attetntion模块，在sentence生成document时加入一个attention，通过这样的分层计算来进行文章分类。整体如下<br>
-<img src="/images/Attention/hierarchical-attention.jpg" alt="hierarchical-attention"></p>
-<h2 id="attention-is-all-you-need"><a class="header-anchor" href="#attention-is-all-you-need">¶</a>Attention Is All You Need</h2>
-<p>Google的这篇文章提出只用attention来做机器翻译，抛弃了CNN和RNN结构。总的来说，attention层利用三个输入，分别是query，key和value来计算，公式如下<br>
-<img src="/images/Attention/eq-10.jpg" alt="eq-10"><br>
-其中$\sqrt{d}$是输入的长度，为了防止内积过大。在论文中query，key和value都使用相同的输入$x$。将这个结构进行融合，提出了multi-head attention，也就是将输入先经过一个线性变换，然后进行多次attention操作，然后再concat，具体如下<br>
-<img src="/images/Attention/eq-11.jpg" alt="eq-11"><br>
-整体attention的模型为<br>
-<img src="/images/Attention/atten.jpg" alt="atten"></p>
+<p>已发布在知乎专栏<a href="https://zhuanlan.zhihu.com/p/47226281" target="_blank" rel="noopener">Beyond the Data</a>。</p>
 
       
     </div>
@@ -487,14 +424,6 @@ $h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
 
       
         
@@ -504,8 +433,8 @@ $h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/02/RCNN/" rel="next" title="Recurrent CNN">
-                <i class="fa fa-chevron-left"></i> Recurrent CNN
+              <a href="/2018/10/13/Attention/" rel="next" title="Attention">
+                <i class="fa fa-chevron-left"></i> Attention
               </a>
             
           </div>
@@ -514,8 +443,8 @@ $h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/28/StructuredSelfAttention/" rel="prev" title="A Structured Self-Attentive Sentence Embedding">
-                A Structured Self-Attentive Sentence Embedding <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/28/Adversarial Training/" rel="prev" title="Adversarial Training Methods for Semi-Supervised Text Classification">
+                Adversarial Training Methods for Semi-Supervised Text Classification <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,17 +528,8 @@ $h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -671,22 +591,6 @@ $h_t$是当前的decoder输出向量，$c_t$是$source$ $context$ $vector$，根
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#encoder-decoder-attention"><span class="nav-number">1.</span> <span class="nav-text">encoder-decoder-attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encoder"><span class="nav-number">1.1.</span> <span class="nav-text">encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decoder"><span class="nav-number">1.2.</span> <span class="nav-text">decoder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-attention"><span class="nav-number">1.2.1.</span> <span class="nav-text">global-attention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-attention"><span class="nav-number">1.2.2.</span> <span class="nav-text">local-attention</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-attention"><span class="nav-number">2.</span> <span class="nav-text">self-attention</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与seq2seq-attention的不同点"><span class="nav-number">2.1.</span> <span class="nav-text">与seq2seq-attention的不同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchical-attention"><span class="nav-number">2.2.</span> <span class="nav-text">hierarchical-attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#attention-is-all-you-need"><span class="nav-number">3.</span> <span class="nav-text">attention-is-all-you-need</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
