@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,21 +87,17 @@
 
 
 
-<meta name="description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
-<meta name="keywords" content="NLP">
+<meta name="description" content="这篇blog主要介绍最近发布在arXiv上的文章《Are All Training Examples Created Equal? An Empirical Study》。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Temporal Convolutional Network">
-<meta property="og:url" content="http://yoursite.com/2018/07/21/TCN/index.html">
+<meta property="og:title" content="Are All Training Examples Created Equal? An Empirical Study">
+<meta property="og:url" content="http://yoursite.com/2018/12/31/Are_All_Training_Examples_Created_Equal/index.html">
 <meta property="og:site_name" content="Howieee&#39;s Blog">
-<meta property="og:description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
+<meta property="og:description" content="这篇blog主要介绍最近发布在arXiv上的文章《Are All Training Examples Created Equal? An Empirical Study》。">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:image" content="http://yoursite.com/images/TCN/model.jpg">
-<meta property="og:image" content="http://yoursite.com/images/TCN/experiment.jpg">
-<meta property="og:updated_time" content="2018-07-21T07:56:35.426Z">
+<meta property="og:updated_time" content="2018-12-31T10:27:48.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Temporal Convolutional Network">
-<meta name="twitter:description" content="这篇blog主要介绍Temporal Convolutional Network，论文标题《An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling》">
-<meta name="twitter:image" content="http://yoursite.com/images/TCN/model.jpg">
+<meta name="twitter:title" content="Are All Training Examples Created Equal? An Empirical Study">
+<meta name="twitter:description" content="这篇blog主要介绍最近发布在arXiv上的文章《Are All Training Examples Created Equal? An Empirical Study》。">
 
 
 
@@ -129,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/21/TCN/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/31/Are_All_Training_Examples_Created_Equal/"/>
 
 
 
 
 
-  <title> Temporal Convolutional Network | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Are All Training Examples Created Equal? An Empirical Study | Howieee's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CH">
@@ -274,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/TCN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/31/Are_All_Training_Examples_Created_Equal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howieee">
@@ -295,7 +291,7 @@
             
             
               
-                Temporal Convolutional Network
+                Are All Training Examples Created Equal? An Empirical Study
               
             
           </h1>
@@ -310,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T15:25:22+08:00">
-                2018-07-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T18:25:47+08:00">
+                2018-12-31
               </time>
             
 
@@ -333,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习NLP</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -363,7 +359,7 @@
                   <span class="post-meta-item-text">Words count in article</span>
                 
                 <span title="Words count in article">
-                  496 字
+                  36 字
                 </span>
               
 
@@ -379,7 +375,7 @@
                   <span class="post-meta-item-text">Reading time</span>
                 
                 <span title="Reading time">
-                  2 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -398,26 +394,9 @@
       
 
       
-        <p>这篇blog主要介绍Temporal Convolutional Network，论文标题《<a href="https://arxiv.org/abs/1709.10380v1" target="_blank" rel="noopener">An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling</a>》</p>
+        <p>这篇blog主要介绍最近发布在arXiv上的文章《<a href="https://arxiv.org/abs/1811.12569" target="_blank" rel="noopener">Are All Training Examples Created Equal? An Empirical Study</a>》。</p>
 <a id="more"></a>
-<p>这篇论文针对sequence建模，提出利用&quot;时空卷积网络(TCN)&quot;，并且在实验中表明TCN比LSTM和GRU效果更好。TCN主要利用了空洞卷积，模型如下。</p>
-<h2 id="模型"><a class="header-anchor" href="#模型">¶</a>模型</h2>
-<p><img src="/images/TCN/model.jpg" alt="model"></p>
-<p>需要注意的是，在进行空洞卷积之前，必须要在sequence“之前”进行padding。因为时空卷积的很重要的一点是当前位置的特征只能由当前位置之前的特征进行卷积得到，并且输出的sequence要与输入前的sequence等长。同时为了是梯度能更好的传播，TCN也使用了残差结构。为了加速训练，也使用了weightnorm这种技术。</p>
-<h2 id="讨论"><a class="header-anchor" href="#讨论">¶</a>讨论</h2>
-<p>TCN有如下好处：<br>
-1.相比于RNN最后的输出要依赖之前的输出，CNN能够更好的并行，sequence能够整体输入到TCN中，不需要像RNN一样的循环输入。<br>
-2.灵活的感受野。通过改变dilation rate或者堆积更多的层，TCN能够得到不同的感受野。<br>
-3.相比与RNN中的梯度问题，TCN因为使用残差结构能够有稳定的梯度<br>
-4.LSTM和GRU都需要占用很大的内存来存储部分结果，而TCN因为卷积的参数共享，在训练中对于内存的要求更少。<br>
-5.TCN也可以像RNN一样处理变长的序列。</p>
-<p>TCN也有如下缺点：<br>
-1.在测试时，RNN只需要保存一个隐藏层的数据，而TCN需要保存所有的原始序列，因此在测试时需要更多的内存。<br>
-2.不同的问题对于history的要求不同，当两个domain的k和d不同时，模型的迁移会很难，因为TCN在小的感受野上得到的模型在大的感受野设置下效果很差。</p>
-<h2 id="实验结果"><a class="header-anchor" href="#实验结果">¶</a>实验结果</h2>
-<p>在各种sequence任务上TCN效果不错，如下<br>
-<img src="/images/TCN/experiment.jpg" alt="experiment"><br>
-<a href="https://github.com/Songweiping/TCN-TF" target="_blank" rel="noopener">TCN实现</a></p>
+<p>已发布在知乎专栏<a href="https://zhuanlan.zhihu.com/p/52458512" target="_blank" rel="noopener">Beyond the Data</a>。</p>
 
       
     </div>
@@ -445,12 +424,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
 
       
         
@@ -460,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/21/Dynamic CNN/" rel="next" title="Dynamic CNN for Modelling Sentences">
-                <i class="fa fa-chevron-left"></i> Dynamic CNN for Modelling Sentences
+              <a href="/2018/12/31/Capsule_Networks_textclassification/" rel="next" title="Investigating Capsule Networks with Dynamic Routing for Text Classification">
+                <i class="fa fa-chevron-left"></i> Investigating Capsule Networks with Dynamic Routing for Text Classification
               </a>
             
           </div>
@@ -469,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/21/SANCF/" rel="prev" title="Self-Attentive Neural Collaborative Filtering">
-                Self-Attentive Neural Collaborative Filtering <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,17 +524,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/blog-logo.jpg"
@@ -627,22 +587,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讨论"><span class="nav-number">2.</span> <span class="nav-text">讨论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验结果"><span class="nav-number">3.</span> <span class="nav-text">实验结果</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
